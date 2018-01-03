@@ -336,7 +336,7 @@
                 display_information("Table Clinic Created");
             }
             $sql = "INSERT INTO " . $dbprefix . "clinic (clinic_id, start_time, end_time) VALUES (1, '9:00am', '7:00pm');";
-            if (!mysql_query($sql, $con)) {
+            if (!mysql_query((mysql_escape_string($sql), $con)) {
                 $message = "Error inserting records in table " . $dbprefix . "clinic : " . mysql_error();
                 display_error($message);
             }
@@ -402,7 +402,7 @@
                 display_information("Table Invoice Created");
             }
             $sql = "INSERT INTO " . $dbprefix . "invoice (static_prefix, left_pad, next_id,currency_symbol) VALUES ('', 4, 1,'Rs.');";
-            if (!mysql_query($sql, $con)) {
+            if (!mysql_query(mysql_escape_string($sql), $con)) {
                 $message = "Error inserting records in table " . $dbprefix . "invoice : " . mysql_error();
                 display_error($message);
             }
@@ -598,7 +598,7 @@
                 display_information("Table Users Created");
             }
             $sql = "INSERT INTO " . $dbprefix . "users (userid, name, username,password,level) VALUES (1, 'Administrator', 'admin','" . base64_encode('admin') . "','Administrator');";
-            if (!mysql_query($sql, $con)) {
+            if (!mysql_query(mysql_escape_string($sql), $con)) {
                 $message = "Error inserting records in table " . $dbprefix . "clinic : " . mysql_error();
                 display_error($message);
             }
@@ -613,7 +613,7 @@
                 display_information("Table Version Created");
             }
             $sql = "INSERT INTO " . $dbprefix . "version (current_version) VALUES ('0.0.6');";
-            if (!mysql_query($sql, $con)) {
+            if (!mysql_query(mysql_escape_string($sql), $con)) {
                 $message = "Error inserting records in table " . $dbprefix . "version : " . mysql_error();
                 display_error($message);
             }
@@ -1094,7 +1094,7 @@
                         
                         $current_version = '0.0.5';
                         $sql = "UPDATE " . $dbprefix . "version SET current_version='" . $current_version . "';";
-                        if (!mysql_query($sql, $con)) {
+                        if (!mysql_query(mysql_escape_string($sql), $con)) {
                             $message = "Error updating records in table " . $dbprefix . "version : " . mysql_error();
                             display_error($message);
                         }
