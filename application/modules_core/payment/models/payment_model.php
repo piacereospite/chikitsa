@@ -11,7 +11,7 @@ class Payment_model extends CI_Model {
         $patient_id = $this->input->post('patient_id');
         $payment_type = $this->input->post('payment_type');
         $amount = $this->input->post('payment_amount');                          /* Advance or Due Amount */
-        $pay_amount = $this->input->post('pay_amount');
+        //$pay_amount = $this->input->post('pay_amount');
 
         if ($payment_type == 'advanced') {
 
