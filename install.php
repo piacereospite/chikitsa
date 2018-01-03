@@ -35,10 +35,10 @@
                     if (!$db_connection) {
                         throw new Exception('MySQL Connection Database Error: ' . mysql_error());
                     }
-                } catch (Exception $e) {
-                    echo "<div class=\"ui-state-error ui-corner-all\" style=\"margin-top: 20px; padding: 0.7em;\">
-						<p><span class=\"ui-icon ui-icon-info\" style=\"float: left; margin-right:.3em;\"></span>" .
-                    $e->getMessage() . "</p></div>";
+                } catch (Exception $e) { ?>
+                    <div class="ui-state-error ui-corner-all" style="margin-top: 20px; padding: 0.7em;">
+						<p><span class="ui-icon ui-icon-info" style="float: left; margin-right:.3em;"></span> <?php 
+                    echo $e->getMessage(); ?> </p></div> <?php
                 }
             }
 
@@ -53,9 +53,9 @@
                             throw new Exception('MySQL Connection Database Error: ' . mysql_error());
                         }
                     } catch (Exception $e) {
-                        echo "<div class=\"ui-state-error ui-corner-all\" style=\"margin-top: 20px; padding: 0.7em;\">
-						<p><span class=\"ui-icon ui-icon-info\" style=\"float: left; margin-right:.3em;\"></span>" .
-                        $e->getMessage() . "</p></div>";
+                        ?> <div class="ui-state-error ui-corner-all" style="margin-top: 20px; padding: 0.7em;">
+						<p><span class="ui-icon ui-icon-info" style="float: left; margin-right:.3em;"></span>
+                        <?php echo $e->getMessage(); ?> </p></div> <?php
                     }
                 } else {
                     $message = "No connection has been established to the database. Cannot open connection.";
@@ -198,15 +198,15 @@
         }
 
         function display_information($message) {
-            echo "<div class=\"ui-state-highlight ui-corner-all\" style=\"margin-top: 20px; padding: 0.7em;\">
-            <p><span class=\"ui-icon ui-icon-info\" style=\"float: left; margin-right:.3em;\"></span>
-            $message</p></div>";
+            ?> <div class="ui-state-highlight ui-corner-all" style="margin-top: 20px; padding: 0.7em;">
+            <p><span class="ui-icon ui-icon-info" style="float: left; margin-right:.3em;"></span>
+             <?php echo $message; ?> </p></div> <?php
         }
 
         function display_error($message) {
-            echo "<div class=\"ui-state-error ui-corner-all\" style=\"margin-top: 20px; padding: 0.7em;\">
-            <p><span class=\"ui-icon ui-icon-info\" style=\"float: left; margin-right:.3em;\"></span>
-            $message</p></div>";
+            ?> <div class="ui-state-error ui-corner-all" style="margin-top: 20px; padding: 0.7em;">
+            <p><span class="ui-icon ui-icon-info" style="float: left; margin-right:.3em;"></span>
+            <?php echo $message; ?> </p></div> <?php
         }
 
         function execute_sql($sql, $con) {
@@ -1139,26 +1139,26 @@
                 echo "<br/>";
                 echo "<br/>";
                 echo "<div class=\"form_style\">";
-                echo "<h2>Chikitsa - Installation</h2>";
+                ?> <h2>Chikitsa - Installation</h2> <?php
                 echo "<form method='post' action='install.php?step=2' >";
                 echo "<div id=\"install\">";
-                echo "<label for='server'>Database Host<span class=\"small\">You should be able to get this info from your web host, if localhost does not work.</span></label>";
+                ?> <label for='server'>Database Host<span class="small">You should be able to get this info from your web host, if localhost does not work.</span></label> <?php
                 echo "<input type='text' name='server' value=\"localhost\">";
-                echo "</div><div id=\"install\">";
-                echo "<label for='dbname'>Database Name<span class=\"small\">The name of the database you want to run Chikitsa in.</span></label>";
+                ?> </div><div id="install">
+				   <label for='dbname'>Database Name<span class="small">The name of the database you want to run Chikitsa in.</span></label> <?php
                 echo "<input type='text' name='dbname'><input type='checkbox' name='createdb' value='createdb'>Create database<br/>";
-                echo "</div><div id=\"install\">";
-                echo "<label for='tableprefix'>Table Prefix<span class=\"small\">If you want to run multiple Chikitsa installations in a single database, change this.</span></label>";
+                ?> </div><div id="install">
+                   <label for='tableprefix'>Table Prefix<span class="small">If you want to run multiple Chikitsa installations in a single database, change this.</span></label> <?php
                 echo "<input type='text' name='tableprefix' value=\"ck_\"><br/>";
-                echo "</div><div id=\"install\">";
-                echo "<label for='username'>User Name<span class=\"small\">Your MySQL username</span></label>";
+                ?> </div><div id="install">
+                   <label for='username'>User Name<span class="small">Your MySQL username</span></label> <?php
                 echo "<input type='text' name='username'><br/>";
-                echo "</div><div id=\"install\">";
-                echo "<label for='password'>Password<span class=\"small\">...and your MySQL password</span></label>";
+                ?> </div><div id="install">
+                   <label for='password'>Password<span class="small">...and your MySQL password</span></label> <?php
                 echo "<input type='text' name='password'><br/>";
-                echo "</div><div id=\"install\">";
-                echo "<button type=\"submit\" name=\"submit\" class=\"submit\"/></button>";
-                echo "<br/></div></form></div>";
+                ?> </div><div id="install">
+                   <button type="submit" name="submit" class="submit"/></button>
+                   <br/></div></form></div> <?php
             }
         } elseif ($_GET["step"] == 2) {
             // Step 2 - Install the application for the first time

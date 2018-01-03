@@ -18,8 +18,8 @@
                 {
                     echo "<td style='text-align:right'>";
                 } 
-                echo $stock['purchase_quantity']-$stock['sell_quantity']."</td>"; ?>
-                <td style='text-align:right'><?php echo $stock['purchase_quantity'];?></td>
+                echo $stock['purchase_quantity']-$stock['sell_quantity'];?></td>
+                <td style='text-align:right'><?php echo $stock['purchase_quantity']; ?></td>
                 <td style='text-align:right'><?php echo $stock['sell_quantity']; ?></td>
                 <td style='text-align:right'><?php echo currency_format(sprintf("%01.2f", $stock['avg_purchase_price']));if($currency_postfix) echo $currency_postfix['currency_postfix']; ?></td>
                 <?php $profit=$stock['avg_sell_price']-$stock['avg_purchase_price']; ?>
