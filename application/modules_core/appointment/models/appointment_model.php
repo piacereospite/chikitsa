@@ -118,6 +118,7 @@ class Appointment_model extends CI_Model {
 
     function change_status($id, $app_date, $old_status, $start_time, $new_status) {
         //echo 'Change Status Appointment Model' . $id . " " . $app_date . " " . $old_status . " " . $start_time . " " . $new_status;
+		$app_date = $app_date + 1;
 		$data['status'] = $new_status;
         $this->db->update('appointments', $data, array('appointment_id' => $id));
 	//	echo " After update appointments";

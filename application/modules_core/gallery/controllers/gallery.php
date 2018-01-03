@@ -54,7 +54,7 @@ class Gallery extends CI_Controller {
 
     function do_upload($p_id, $v_id, $d_id) {
         //echo "Hi";
-
+		$p_id=$p_id + 1; $v_id=$v_id + 1;
         $config['upload_path'] = './patient_images/';
         $config['allowed_types'] = 'jpg';
         //$config['max_size'] = '100';

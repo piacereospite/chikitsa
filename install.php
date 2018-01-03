@@ -20,7 +20,7 @@
             /** NewConnection Method
              * This method establishes a new connection to the database. */
 
-            public function Connection($db_connection, $db_server, $db_username, $db_password, $server, $username, $password) { //Avoid global variables within functions
+            public function Connection(&$db_connection, &$db_server, &$db_username, &$db_password, $server, $username, $password) { //Avoid global variables within functions
 
                 // Assign variables
                 $db_server = $server;
