@@ -91,7 +91,7 @@ class Contact_model extends CI_Model {
         }
         function update_address()
         {
-            $contact_id               = $this->input->post('contact_id');
+           // $contact_id               = $this->input->post('contact_id');
             $data['type']             = $this->input->post('type');
             $data['address_line_1']   = $this->input->post('address_line_1');
             $data['address_line_2']   = $this->input->post('address_line_2');

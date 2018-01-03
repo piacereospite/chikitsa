@@ -58,7 +58,7 @@ class Appointment extends CI_Controller {
             } else {
                 $data['doctors'] = $this->admin_model->get_doctor();
 
-                $i = 0;
+                //$i = 0;
 
                 $data['appointments'] = $this->appointment_model->get_appointments($appointment_date);
                 $followup_date = date('Y-m-d', strtotime("+8 days"));

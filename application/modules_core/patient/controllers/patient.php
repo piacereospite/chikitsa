@@ -53,7 +53,7 @@ class Patient extends CI_Controller {
             } else {               
                 $contact_id = $this->contact_model->insert_new_patient();
                 //$this->contact_model->insert_address($contact_id);
-                $patient_id = $this->patient_model->insert_patient($contact_id);                
+                //$patient_id = $this->patient_model->insert_patient($contact_id);                
                 
                 //$this->visit($patient_id);
                 $this->index();
