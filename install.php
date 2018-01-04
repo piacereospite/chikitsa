@@ -27,7 +27,7 @@
                 $db_username = $username;
                 $db_password = $password;
 
-                // Attempt connection
+                // Attempt connection 
                 try {
                     // Create connection to MYSQL database
                     // Fourth true parameter will allow for multiple connections to be made
