@@ -51,8 +51,8 @@ $(document).ready(function() {
             <?php $i=1; $j=1 ?>
             <?php foreach ($treatments as $treatment):  ?>
             <tr <?php 
-			        $var = 0; //avoid literals in methods calls
-					if ($i%2 == $var) { echo "class='alt'"; } ?> >
+			        define("VAR1",  0); // avoid literals in methods calls
+					if ($i%2 == VAR1) { echo "class='alt'"; } ?> >
                 <td><?php echo $j; ?></td>
                 <td><?php echo $treatment['treatment']; ?></td>
                 <td class="right"><?php echo currency_format($treatment['price']);if($currency_postfix) echo $currency_postfix['currency_postfix']; ?></td>                

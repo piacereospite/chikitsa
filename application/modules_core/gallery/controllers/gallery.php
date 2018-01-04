@@ -1,6 +1,8 @@
 <?php
 
 class Gallery extends CI_Controller {
+	
+	const VAR1 = 800; // avoid literals in methods calls.
 
     function __construct() {
         parent::__construct();
@@ -59,9 +61,8 @@ class Gallery extends CI_Controller {
         $config['allowed_types'] = 'jpg';
         //$config['max_size'] = '100';
         $config['overwrite'] = false;
-		$var = 800; //avoid literals in methods calls
-        $config['max_width'] = $var;
-        $config['max_height'] = $var;
+        $config['max_width'] = VAR1;
+        $config['max_height'] = VAR1;
         $config['file_name'] = $d_id . "_" . date("dmY");
 
 

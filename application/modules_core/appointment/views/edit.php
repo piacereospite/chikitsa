@@ -140,13 +140,14 @@ foreach ($patients as $patient) {
 //                    });
 </script>
 <?php
+
+define("VAR1",  60); // avoid literals in methods calls
 if ($appointment == null) {
     $header = "New Appointment";
     $title = "";
     $id = "";
     $start_time = $appointment_time;
-	$var = 60; //avoid literals in methods calls
-    $appointment_endtime = date("H:i", strtotime($appointment_time) + (($time_interval*$var) * $var));
+    $appointment_endtime = date("H:i", strtotime($appointment_time) + (($time_interval*$var) * VAR1));
     $end_time = $appointment_endtime;
     //print_r($curr_patient);
     if (isset($curr_patient)) {

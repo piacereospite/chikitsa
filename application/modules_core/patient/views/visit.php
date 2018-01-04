@@ -118,8 +118,8 @@ $(document).ready(function() {
         <?php foreach ($visits as $visit){ ?>
         <tbody>
             <tr <?php 
-			        $var = 0; //avoid literals in methods calls
-					if ($i%2 == $var) { echo "class='alt'"; } ?> >
+			        define("VAR1",  0); // avoid literals in methods calls
+					if ($i%2 == VAR1) { echo "class='alt'"; } ?> >
                 <td><?=date("d-m-Y",strtotime($visit['visit_date']));?> <?=$visit['visit_time'];?></td>
                 <td><?=$visit['type']; ?></td>
                 <td><?=$visit['notes']; ?><br />

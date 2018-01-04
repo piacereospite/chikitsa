@@ -23,15 +23,17 @@ $(function()
 </script>
 <?php
 
+define("VAR1",  13); // avoid literals in methods calls
+define("VAR2",  12); // avoid literals in methods calls
+define("VAR3",  60); // avoid literals in methods calls
+define("VAR4",  31); // avoid literals in methods calls
+
 function inttotime($tm) {
-	$var = 13;  // avoid literals in methods calls
-    if ($tm >= $var) {
-		$var = 12; //avoid literals in methods calls
-        $tm = $tm - $var;
+    if ($tm >= VAR1) {
+        $tm = $tm - VAR2;
     }
     $hr = intval($tm);
-	$var = 60; //avoid literals in methods calls
-    $min = (($tm - intval($tm)) * $var);
+    $min = (($tm - intval($tm)) * VAR3);
     $format = '%02d:%02d';
     return sprintf($format, $hr, $min);
 }
@@ -39,22 +41,18 @@ function inttotime($tm) {
 function timetoint($time) {
     $hrcorrection = 0;
     if (strpos($time, 'p') > 0)
-		$var = 12; // avoid literals in methods calls.
-        $hrcorrection = $var;
+        $hrcorrection = VAR2;
     list($hours, $mins) = explode(':', $time);
     $mins = str_replace('a', '', $mins);
     $mins = str_replace('p', '', $mins);
-	$var = 60; //avoid literals in methods calls
 
-    return $hours + $hrcorrection + ($mins / $var);
+    return $hours + $hrcorrection + ($mins / VAR3);
 }
 ?>
 <div class="app_sidebar">
     <div class="calendar">                                                            <!--  Display Calendar -->
         <?php
-		$var = 1; //avoid literals in methods calls
-		$var1 = 31; //avoid literals in methods calls
-        for ($i = $var; $i <= $var1; $i++) {
+        for ($i = 1; $i <= VAR4; $i++) {
             $data[$i] = base_url() . 'index.php/appointment/index/' . $year . '/' . $month . '/' . $i;
         }
         echo $this->calendar->generate($year, $month, $data);

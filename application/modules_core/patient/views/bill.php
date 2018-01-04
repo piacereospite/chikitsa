@@ -113,8 +113,8 @@ foreach ($items as $item) {
                         }
                     ?>
                     <tr <?php
-                          $var = 0; //avoid literals in methods calls					
-					      if ($i % 2 == $var) { echo "class='alt'";} ?> >
+                          define("VAR1",  0); // avoid literals in methods calls					
+					      if ($i % 2 == VAR1) { echo "class='alt'";} ?> >
                     <td><?php echo $bill_detail['particular'] ?></td>
                     
                     <td style="text-align:right;"><?php echo $bill_detail['quantity'] ?></td>                   

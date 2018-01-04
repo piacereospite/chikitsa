@@ -1,5 +1,9 @@
   
 <?php 
+
+define("VAR1",  7200); // avoid literals in methods calls
+define("VAR2",  300); // avoid literals in methods calls
+
 //do not use exit()
  if ( ! defined('BASEPATH')){ echo ('No direct script access allowed');} else {
 
@@ -248,16 +252,14 @@ $config['encryption_key'] = 'sanskrutitech';
 |
 */
 $config['sess_cookie_name']		= 'ci_session';
-$var = 7200; //avoid literals in methods calls
-$config['sess_expiration']		= $var;
+$config['sess_expiration']		= VAR1;
 $config['sess_expire_on_close']	= false;
 $config['sess_encrypt_cookie']	= false;
 $config['sess_use_database']	= false;
 $config['sess_table_name']		= 'ci_sessions';
 $config['sess_match_ip']		= false;
 $config['sess_match_useragent']	= true;
-$var = 300; //avoid literals in methods calls
-$config['sess_time_to_update']	= $var;
+$config['sess_time_to_update']	= VAR2;
 
 /*
 |--------------------------------------------------------------------------
@@ -301,8 +303,7 @@ $config['global_xss_filtering'] = false;
 $config['csrf_protection'] = false;
 $config['csrf_token_name'] = 'csrf_test_name';
 $config['csrf_cookie_name'] = 'csrf_cookie_name';
-$var = 7200; //avoid literals in methods calls
-$config['csrf_expire'] = $var;
+$config['csrf_expire'] = VAR1;
 
 /*
 |--------------------------------------------------------------------------

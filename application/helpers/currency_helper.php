@@ -1,5 +1,7 @@
 <?php
 
+define("VAR1",  2); // avoid literals in methods calls
+
 function get_currency_symbol()
   {
     //the database functions can not be called from within the helper
@@ -33,8 +35,7 @@ if ( ! function_exists('currency_format'))
   function currency_format($number)
   {
     $currencySymbol = get_currency_symbol();
-	$var = 2; //avoid literals in methods calls
-    return $currencySymbol. number_format($number, $var, '.', ',');
+    return $currencySymbol. number_format($number, VAR1, '.', ',');
   }
 }
  

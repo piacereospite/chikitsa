@@ -55,7 +55,7 @@ $total = ($medicine + $treatment) - ((-1)*($balance));
                 </tr>
                 <tr>
                     <th class="particular">Total</th>
-                    <th class="amount"><?= $var = 2; currency_format(number_format((float)$total, $var, '.', ''));if($currency_postfix) echo $currency_postfix['currency_postfix']; ?></th>
+                    <th class="amount"><?= define("VAR1",  2); currency_format(number_format((float)$total, VAR1, '.', ''));if($currency_postfix) echo $currency_postfix['currency_postfix']; ?></th>
                 </tr>
                 <tr>
                     <th class="particular">Paid Amount</th>
