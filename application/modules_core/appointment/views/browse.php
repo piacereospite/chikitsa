@@ -114,7 +114,7 @@ function timetoint($time) {
 //                    echo " class='done'";
 //                } 
 //                echo ">";
-                echo "<input type='checkbox' id='todo' name='todo' value='" . $todo['id_num'] . "'";
+                echo "<input type='checkbox' id='todo' name='todo' value='" , $todo['id_num'] , "'";
                 if ($todo['done'] == 1) {
                     echo " checked";
                 }
@@ -158,7 +158,7 @@ function timetoint($time) {
 </div>
 
 <div class="day_appointment">
-    <span class="current_date"><?php echo $day . "/" . $month . "/" . $year; ?></span>
+    <span class="current_date"><?php echo $day , "/" , $month , "/" , $year; ?></span>
     <?php
     $level = $this->session->userdata('category');
     if ($level == 'Doctor') {

@@ -30,7 +30,7 @@
         <input type="input" name="last_name" class="inline" value=""/><br/>
     </div>        
     <div id="pic" style="float:right;width:500px;">        
-        <img id="blah" src="<?php echo base_url()."/images/Profile.png" ?>" alt="your image"  height="100" width="100" /><br />
+        <img id="blah" src="<?php echo base_url(),"/images/Profile.png" ?>" alt="your image"  height="100" width="100" /><br />
         <input type="file" id="userfile" name="userfile" size="20" onchange="readURL(this);" />
         <input type="hidden" id="src" name="src" value="" />
     </div>    

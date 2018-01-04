@@ -152,7 +152,7 @@ if ($flag==1){} else {
 	if ( ! is_dir($system_path))
 	{
 		//do not use exit()
-		echo("Your system folder path does not appear to be set correctly. Please open the following file and correct this: ".pathinfo(__FILE__, PATHINFO_BASENAME));
+		echo("Your system folder path does not appear to be set correctly. Please open the following file and correct this: ",pathinfo(__FILE__, PATHINFO_BASENAME)); //Avoid concatenations in echo statement
 		$flag_dir=1;
 	}
 	if ($flag_dir==1){} else {
@@ -187,7 +187,7 @@ if ($flag==1){} else {
 		if ( ! is_dir(BASEPATH.$application_folder.'/'))
 		{
 			//do not use exit()
-			echo("Your application folder path does not appear to be set correctly. Please open the following file and correct this: ".SELF);
+			echo("Your application folder path does not appear to be set correctly. Please open the following file and correct this: ",SELF); //Avoid concatenations in echo statement
 			$flag_dir2=1;
 		}
 		if ($flag_dir2==1){} else {define('APPPATH', BASEPATH.$application_folder.'/');}

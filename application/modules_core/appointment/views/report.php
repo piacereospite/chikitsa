@@ -16,7 +16,7 @@ foreach ($doctors as $doctor) {
     if ($i > 0) {
         echo ",";
     }
-    echo '{value:"' . $doctor['name'] . '",id:"' . $doctor['userid'] . '"}';
+    echo '{value:"' , $doctor['name'] , '",id:"' , $doctor['userid'] , '"}'; //Avoid concatenations in echo statement
     $i++;
 }
 ?>],

@@ -16,7 +16,7 @@ $(function()
     if ($i > 0) {
         echo ",";
     }
-                    echo '{value:"' . $item['item_name'] . '",id:"' . $item['item_id'] . '"}';
+                    echo '{value:"' , $item['item_name'] , '",id:"' , $item['item_id'] , '"}'; //Avoid concatenations in echo statement
                     $i++;
                 }
             ?>],
@@ -37,7 +37,7 @@ $(function()
     if ($i > 0) {
         echo ",";
     }
-                    echo '{value:"' . $supplier['supplier_name'] . '",id:"' . $supplier['supplier_id'] . '"}';
+                    echo '{value:"' , $supplier['supplier_name'] , '",id:"' , $supplier['supplier_id'] , '"}'; //Avoid concatenations in echo statement
                     $i++;
                 }
             ?>],

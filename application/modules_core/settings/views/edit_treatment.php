@@ -1,7 +1,7 @@
 <div class="form_style">
     <h2>Edit Treatment</h2>
     
-    <?php echo form_open('settings/edit_treatment_id/' . $treatment['id']); ?>
+    <?php echo form_open('settings/edit_treatment_id/' , $treatment['id']); //Avoid concatenations in echo statement ?> 
         <label for="treatment">Treatment</label>
         <input type="text" name="treatment" id="treatment" value="<?php echo $treatment['treatment']; ?>" readonly="readonly"/><br/>        
         

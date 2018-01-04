@@ -60,7 +60,7 @@ foreach ($patients as $patient) {
     if ($i > 0) {
         echo ",";
     }
-    echo '{value:"' . $patient['first_name'] . " " . $patient['middle_name'] . " " . $patient['last_name'] . '",id:"' . $patient['patient_id'] . '",display:"' . $patient['display_name'] . '",num:"' . $patient['phone_number'] . '"}';
+    echo '{value:"' , $patient['first_name'] , " " , $patient['middle_name'] , " " , $patient['last_name'] , '",id:"' , $patient['patient_id'] , '",display:"' , $patient['display_name'] , '",num:"' , $patient['phone_number'] , '"}';
     $i++;
 }
 ?>],
@@ -83,7 +83,7 @@ foreach ($patients as $patient) {
     if ($i > 0) {
         echo ",";
     }
-    echo '{value:"' . $patient['phone_number'] . '",id:"' . $patient['patient_id'] . '",display:"' . $patient['display_name'] . '",patient:"' . $patient['first_name'] . " " . $patient['middle_name'] . " " . $patient['last_name'] . '"}';
+    echo '{value:"' , $patient['phone_number'] , '",id:"' , $patient['patient_id'] , '",display:"' , $patient['display_name'] , '",patient:"' , $patient['first_name'] , " " , $patient['middle_name'] , " " , $patient['last_name'] , '"}';
     $i++;
 }
 ?>],
@@ -105,7 +105,7 @@ foreach ($patients as $patient) {
     if ($i > 0) {
         echo ",";
     }
-    echo '{value:"' . $patient['display_name'] . '",id:"' . $patient['patient_id'] . '",num:"' . $patient['phone_number'] . '",patient:"' . $patient['first_name'] . " " . $patient['middle_name'] . " " . $patient['last_name'] . '"}';
+    echo '{value:"' , $patient['display_name'] , '",id:"' , $patient['patient_id'] , '",num:"' , $patient['phone_number'] , '",patient:"' , $patient['first_name'] , " " , $patient['middle_name'] , " " , $patient['last_name'] , '"}';
     $i++;
 }
 ?>],
@@ -202,7 +202,7 @@ if ($appointment == null) {
     </div>
     <div class="slidingDiv">
 
-<?php echo form_open('patient/insert_new_patient' . "/" . $start_time . "/" . $appointment_date) ?>    
+<?php echo form_open('patient/insert_new_patient' , "/" , $start_time , "/" , $appointment_date) ?>    
         <table>
             <tr>
                 <td><label for="first_name">First Name</label></td>
@@ -266,17 +266,17 @@ if ($id != null) {
             <a class="button" <?php if ($status == 'Cancel') {
             echo 'style= display:none;';
         } else {
-            echo 'href = ' . base_url() . "index.php/appointment/change_status/" . $id . "/" . $appointment_date . "/" . $status . "/" . $start_time . "/Cancel";
+            echo 'href = ' , base_url() , "index.php/appointment/change_status/" , $id , "/" , $appointment_date , "/" , $status , "/" , $start_time , "/Cancel";
         } ?>>Cancel Appointment</a>
             <a class="button" <?php if ($status == 'Waiting') {
             echo 'style= display:none;';
         } else {
-            echo 'href = ' . base_url() . "index.php/appointment/change_status/" . $id . "/" . $appointment_date . "/" . $status . "/" . $start_time . "/Waiting";
+            echo 'href = ' , base_url() , "index.php/appointment/change_status/" , $id , "/" , $appointment_date , "/" , $status , "/" , $start_time , "/Waiting";
         }; ?>>Waiting</a>
             <a class="button" <?php if ($status == 'Consultation') {
             echo 'style= display:none;';
         } else {
-            echo 'href = ' . base_url() . "index.php/appointment/change_status/" . $id . "/" . $appointment_date . "/" . $status . "/" . $start_time . "/Consultation";
+            echo 'href = ' , base_url() , "index.php/appointment/change_status/" , $id , "/" , $appointment_date , "/" , $status , "/" , $start_time , "/Consultation";
         }; ?>>Consultation</a>
 <!--            <a class="button" <?php // if ($status == 'Waiting') {
            // echo 'href = ' . base_url() . "index.php/payment/index/" . $patient_id;

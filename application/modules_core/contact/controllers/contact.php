@@ -91,7 +91,7 @@ class Contact extends CI_Controller {
                 redirect('patient/visit/'. $patient_id);
                 } else {
               
-                    echo "Upload Image " . $name;
+                    echo "Upload Image " , $name; //Avoid concatenations in echo statement
                     $patient_id = $this->input->post('patient_id');
                     $this->contact_model->update_contact($name);
                     $this->contact_model->update_address();

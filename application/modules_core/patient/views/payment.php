@@ -22,7 +22,7 @@ function changetextbox()
 
 <span class="err"><?php echo validation_errors(); ?></span>
 
-<?php echo form_open('patient/payment/' . $visit_id ) ?>
+<?php echo form_open('patient/payment/' , $visit_id ) ?>
         <input type="hidden" name="bill_id" value="<?=$bill_id?>"/>
         <label for="pay_date">Date</label> 
         <input name="pay_date" id="bill_date" class="date-pick dp-applied" value="<?php echo date('d-m-Y'); ?>"/><br/>

@@ -49,8 +49,8 @@ $t = time('H:i A');
     <h2>Follow-Up Form</h2>
     <div class="button_link" style="padding-top: 50px; padding-left: 35px;" >        
         <a href="#" class="show_hide button" style="mar">Update Date</a>
-        <a class="button" href="<?php echo base_url() . '/index.php/appointment/edit/' . $y . '/' . $m . '/' . $d . '/' . $t . '/' . $patient_id ?>">Add Appointment</a>
-        <a class="button" href="<?php echo base_url() . '/index.php/patient/dismiss_followup/' . $patient_id ?> ">Dismissed Followup</a>
+        <a class="button" href="<?php echo base_url() , '/index.php/appointment/edit/' , $y , '/' , $m , '/' , $d , '/' , $t , '/' , $patient_id ?>">Add Appointment</a>
+        <a class="button" href="<?php echo base_url() , '/index.php/patient/dismiss_followup/' , $patient_id ?> ">Dismissed Followup</a>
 
     </div>
     
@@ -58,7 +58,7 @@ $t = time('H:i A');
     
     <div class="slidingDiv">
 
-        <?php echo form_open('patient/change_followup_date/' . $patient_id) ?>    
+        <?php echo form_open('patient/change_followup_date/' , $patient_id) ?>    
         <table>
             <tr>
                 <td><label for="followup_date">Follow-Up Date</label></td>            

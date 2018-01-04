@@ -2,7 +2,7 @@
     <h2>Edit User</h2>
     <?php $level = $user['level']; ?>
 
-    <?php echo form_open('admin/edit_user/'. $user['userid']); ?>
+    <?php echo form_open('admin/edit_user/', $user['userid']); ?> 
 
     <?php if($level == 'Administrator') { ?>
     <label for="level">Category</label>

@@ -42,7 +42,7 @@ $(document).ready(function() {
     <?php foreach ($patients as $patient):  ?>        
     <tr <?php if ($i%2 == 0) { echo "class='alt'"; } ?> >
         <td><?php echo $patient['display_id']; ?></td>
-        <td><a class="link" title="Edit" href="<?php echo site_url("contact/edit/" . $patient['patient_id']); ?>"><?php echo $patient['first_name'] . " " . $patient['middle_name'] . " " . $patient['last_name'] ?></a></td>
+        <td><a class="link" title="Edit" href="<?php echo site_url("contact/edit/" , $patient['patient_id']); ?>"><?php echo $patient['first_name'] , " " , $patient['middle_name'] , " " , $patient['last_name'] ?></a></td>
         <td><?php echo $patient['display_name']; ?></td>
         <td><?php echo $patient['reference_by'];?></td>
         <td><a class="button" title="Visit" href="<?php echo site_url("patient/visit/" . $patient['patient_id']); ?>">Visit</a></td>

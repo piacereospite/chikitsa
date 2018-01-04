@@ -14,7 +14,7 @@ $(function()
                 $i=0;
                 foreach ($items as $item){
                     if ($i>0) {echo ",";}
-                    echo '{value:"' . $item['item_name'] . '",id:"' . $item['item_id'] . '"}';
+                    echo '{value:"' , $item['item_name'] , '",id:"' , $item['item_id'] , '"}'; //Avoid concatenations in echo statement
                     $i++;
                 }
             ?>],
@@ -33,7 +33,7 @@ $(function()
                 $i=0;
                 foreach ($suppliers as $supplier){
                     if ($i>0) {echo ",";}
-                    echo '{value:"' . $supplier['supplier_name'] . '",id:"' . $supplier['supplier_id'] . '"}';
+                    echo '{value:"' , $supplier['supplier_name'] , '",id:"' , $supplier['supplier_id'] , '"}'; //Avoid concatenations in echo statement
                     $i++;
                 }
             ?>],
@@ -74,7 +74,7 @@ $(document).ready(function() {
 <div class="form_style">
     <span class="err"><?php echo validation_errors(); ?></span>
 
-<?php echo form_open('stock/edit_purchase/'. $purchase['purchase_id']) ?>
+<?php echo form_open('stock/edit_purchase/', $purchase['purchase_id']) ?> 
     <input type="hidden" name="purchase_id" id="purchase_id" value="<?=$purchase['purchase_id']?>"/>
     <label for="purchase_date">Purchase Date</label> 
     <input type="input" name="purchase_date" id="purchase_date" value="<?php echo date("d-m-Y",strtotime($purchase['purchase_date']));?>"/><br/>

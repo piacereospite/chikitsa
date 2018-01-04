@@ -31,7 +31,7 @@ foreach ($items as $item) {
     if ($i > 0) {
         echo ",";
     }
-    echo '{value:"' . $item['item_name'] . '",id:"' . $item['item_id'] . '"}';
+    echo '{value:"' , $item['item_name'] , '",id:"' , $item['item_id'] , '"}'; //Avoid concatenations in echo statement
     $i++;
 }
 ?>],
@@ -53,7 +53,7 @@ foreach ($items as $item) {
     <br/>
     <span class="err"><?php echo validation_errors(); ?></span>
 <br/>
-<?php echo form_open('patient/bill/' . $visit_id . '/' . $patient_id) ?>
+<?php echo form_open('patient/bill/' , $visit_id , '/' , $patient_id) ?> 
 
     <input type="hidden" name="visit_id" value="<?=$visit_id?>"/>
     <input type="hidden" name="patient_id" value="<?=$patient_id?>"/>

@@ -28,7 +28,7 @@ $(document).ready(function() {
     <span class="view_label">Id :</span>
     <span class="view_detail"><?php echo $patient['display_id'];?></span><br/>
     <span class="view_label">Name :</span>
-    <span class="view_detail"><?php echo $patient['first_name'] . " " . $patient['middle_name']. " " . $patient['last_name'];?></span><br/>
+    <span class="view_detail"><?php echo $patient['first_name'] , " " , $patient['middle_name'], " " , $patient['last_name'];?></span><br/> 
     <span class="view_label">Display Name :</span>
     <span class="view_detail"><?php echo $patient['display_name'];?></span><br/>
     <span class="view_label">Mobile :</span>
@@ -37,7 +37,7 @@ $(document).ready(function() {
     <span class="view_detail"><?=$addresses['email'];?></span><br/>
     <span class="view_label">Address :</span>
     <span class="view_detail"><strong>(<?php echo $addresses['type'];?>)</strong></span>
-        <span class="view_detail"><?php echo $addresses['address_line_1'].",".$addresses['address_line_2'].",".$addresses['city'].",".$addresses['state'].",".$addresses['postal_code'].",".$addresses['country'];?></span><br/>     
+        <span class="view_detail"><?php echo $addresses['address_line_1'],",",$addresses['address_line_2'],",",$addresses['city'],",",$addresses['state'],",",$addresses['postal_code'],",",$addresses['country'];?></span><br/>     
     <span class="view_label">Reference By :</span>
     <span class="view_detail"><?php echo $patient['reference_by'];?></span><br/><br />
     
@@ -48,12 +48,12 @@ $(document).ready(function() {
 
 <span class="err"><?php echo validation_errors(); ?></span>
 
-<?php echo form_open('patient/visit/'. $patient_id) ?>
-        <?php
+<?php echo form_open('patient/visit/', $patient_id) ?>  
+        <?php  //Avoid concatenations in echo statement
             $level = $this->session->userdata('category');
             if($this->session->userdata('category') == 'Doctor') {
                 $userid = $this->session->userdata('id');
-                echo '<input type="hidden" name="doctor" value="'.$patient_id.'"/>';
+                echo '<input type="hidden" name="doctor" value="',$patient_id,'"/>'; //Avoid concatenations in echo statement
             } else {
                 $userid = 0;
             }                       
@@ -104,8 +104,8 @@ $(document).ready(function() {
             </script><br />
         
         <button class="button" type="submit" name="submit" />Save</button>
-        <a class="button" <?php if($appointment_id == null){ echo 'style= display:none;';} else{ echo 'href = ' . base_url() . "index.php/appointment/change_status/" . $appointment_id . "/" . $appointment_date . "/Consultation"  . "/" . $start_time . "/Complete";}?>>Complete</a>            
-    </form>
+        <a class="button" <?php if($appointment_id == null){ echo 'style= display:none;';} else{ echo 'href = ' , base_url() , "index.php/appointment/change_status/" , $appointment_id , "/" , $appointment_date , "/Consultation"  , "/" , $start_time , "/Complete";}?>>Complete</a>           
+    </form> 
     
 </div>
 <?php if ($visits) {?>
@@ -129,7 +129,7 @@ $(document).ready(function() {
                                     echo $visit_treatment['particular'];
                                     $flag = true;
                                 }else{
-                                    echo " ," . $visit_treatment['particular']; 
+                                    echo " ," , $visit_treatment['particular']; //Avoid concatenations in echo statement
                                 }
                             }
                         }?>

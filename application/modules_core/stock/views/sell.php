@@ -13,7 +13,7 @@ $(function()
                 $i=0;
                 foreach ($patients as $patient){
                     if ($i>0) {echo ",";}
-                    echo '{value:"' . $patient['first_name'] . " " . $patient['middle_name'] . " " .$patient['last_name'] . '",id:"' . $patient['patient_id'] . '"}';
+                    echo '{value:"' , $patient['first_name'] , " " , $patient['middle_name'] , " " ,$patient['last_name'] , '",id:"' , $patient['patient_id'] , '"}'; //Avoid concatenations in echo statement
                     $i++;
                 }
             ?>],
@@ -32,7 +32,7 @@ $(function()
                 $i=0;
                 foreach ($items as $item){
                     if ($i>0) {echo ",";}
-                    echo '{value:"' . $item['item_name'] . '",id:"' . $item['item_id'] . '"}';
+                    echo '{value:"' , $item['item_name'] , '",id:"' , $item['item_id'] , '"}'; //Avoid concatenations in echo statement
                     $i++;
                 }
             ?>],

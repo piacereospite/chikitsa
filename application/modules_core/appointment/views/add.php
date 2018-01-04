@@ -27,12 +27,12 @@ $(function()
 <div class="form_style">
 <h2>New Appointment</h2><br/>
 <span class="err"><?php echo validation_errors(); ?></span>
-<?php echo form_open('appointment/add/' . $patient['patient_id']) ?>
+<?php echo form_open('appointment/add/' , $patient['patient_id']) ?>
     <input type="hidden" name="id" value=""/>
     <input type="hidden" name="patient_id" value="<?=$patient['patient_id']?>"/>
     
     <label for="title">Patient</label>
-    <input type="text" name="title" value="<?php echo $patient['first_name'] . " " . $patient['middle_name'] . " " .$patient['last_name'];?>"/><br/>
+    <input type="text" name="title" value="<?php echo $patient['first_name'] , " " , $patient['middle_name'] , " " ,$patient['last_name'];?>"/><br/>
     <span class="err"><?php echo form_error('level'); ?></span>
     
     <label for="start_time">Start Time</label>

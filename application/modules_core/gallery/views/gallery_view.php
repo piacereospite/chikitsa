@@ -36,7 +36,7 @@ document.getElementById('linkopen').innerHTML='<iframe src="'+firstlink+'"></ifr
 // put your code here
 ?>
 <div class="form_style">
-    <h2><?php echo $patient->first_name . " " . $patient->last_name; ?></h2>
+    <h2><?php echo $patient->first_name , " " , $patient->last_name; ?></h2>
     <!--    <h2>Patient Images</h2>-->
     <a href="<?php echo base_url()."/index.php/patient/visit/" . $patient_id; ?>">Back to Visit</a>
     <span class="err"><?php echo validation_errors(); ?></span>

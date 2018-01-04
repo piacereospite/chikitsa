@@ -22,8 +22,8 @@ $total = ($medicine + $treatment) - ((-1)*($balance));
             </div>
             <h3>Receipt</h3>
             <span class="bill_date"><strong>Date : </strong><?= date('d/m/Y h:i A', strtotime($bill['bill_date'])) ?></span>
-            <span class="bill_no"><strong>Receipt Number : </strong><?= $invoice['static_prefix'] . sprintf("%0" . $invoice['left_pad'] . "d", $bill['bill_id']) ?></span>
-            <span class="patient_name"><strong>Patient Name : </strong><? echo $patient['first_name'] . " " . $patient['middle_name'] . " " . $patient['last_name']; ?></span>
+            <span class="bill_no"><strong>Receipt Number : </strong><?= $invoice['static_prefix'] , sprintf("%0" , $invoice['left_pad'] , "d", $bill['bill_id']) ?></span>
+            <span class="patient_name"><strong>Patient Name : </strong><? echo $patient['first_name'] , " " , $patient['middle_name'] , " " , $patient['last_name']; ?></span>
             <hr/>
             <span>Received fees for Professional services and other charges of our:</span>
             <table>

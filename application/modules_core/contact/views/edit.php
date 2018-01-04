@@ -19,7 +19,7 @@
 <div class="form_style">
     <h2>Edit Contact</h2><br/>
     <span class="err"><?php echo validation_errors(); ?></span>
-    <?php echo form_open_multipart('contact/edit/' . $patient_id) ?>
+    <?php echo form_open_multipart('contact/edit/' , $patient_id) ?>
     <input type="hidden" name="contact_id" class="inline" value="<?= $contacts['contact_id']; ?>"/>
 <!--        <input type="hidden" name="address_id" class="inline" value="<?= $address['address_id']; ?>"/>-->
     <input type="hidden" name="patient_id" class="inline" value="<?= $patient_id; ?>"/>
@@ -31,7 +31,7 @@
     </div>        
     <div id="pic" style="float:right;width:500px;">            
         <!--        <label for="pic" style="text-align:left;">Picture</label><br/>-->
-        <img id="blah" src="<?php echo base_url().$contacts['contact_image']; ?>" alt="your image"  height="100" width="100" /><br />
+        <img id="blah" src="<?php echo base_url(),$contacts['contact_image']; ?>" alt="your image"  height="100" width="100" /><br />
         <input type="file" id="userfile" name="userfile" size="20" onchange="readURL(this);" />
 <!--        <img id="blah" src="<?php echo $contacts['contact_image']; ?>" alt="your image"  height="100" width="100"/>-->
         <input type="hidden" id="src" name="src" value="<?php echo $contacts['contact_image']; ?>" />
