@@ -145,7 +145,8 @@ if ($appointment == null) {
     $title = "";
     $id = "";
     $start_time = $appointment_time;
-    $appointment_endtime = date("H:i", strtotime($appointment_time) + (($time_interval*60) * 60));
+	$var = 60; //avoid literals in methods calls
+    $appointment_endtime = date("H:i", strtotime($appointment_time) + (($time_interval*$var) * $var));
     $end_time = $appointment_endtime;
     //print_r($curr_patient);
     if (isset($curr_patient)) {

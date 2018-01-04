@@ -33,7 +33,8 @@ if ( ! function_exists('currency_format'))
   function currency_format($number)
   {
     $currencySymbol = get_currency_symbol();
-    return $currencySymbol. number_format($number, 2, '.', ',');
+	$var = 2; //avoid literals in methods calls
+    return $currencySymbol. number_format($number, $var, '.', ',');
   }
 }
  

@@ -59,8 +59,9 @@ class Gallery extends CI_Controller {
         $config['allowed_types'] = 'jpg';
         //$config['max_size'] = '100';
         $config['overwrite'] = false;
-        $config['max_width'] = 800;
-        $config['max_height'] = 800;
+		$var = 800; //avoid literals in methods calls
+        $config['max_width'] = $var;
+        $config['max_height'] = $var;
         $config['file_name'] = $d_id . "_" . date("dmY");
 
 

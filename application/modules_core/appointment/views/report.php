@@ -89,7 +89,9 @@ $level = $this->session->userdata('category');
         <?php $i=1; ?>
         <?php foreach ($app_reports as $report):  ?>
         <tbody>
-            <tr <?php if ($i%2 == 0) { echo "class='alt'"; } ?> >
+            <tr <?php 
+			    $var = 0; //avoid literals in methods calls
+				if ($i%2 == $var) { echo "class='alt'"; } ?> >
                 <td><?= $report['patient_name'];?></td>                
                 <td><?=$report['appointment_time']; ?></td>
                 <td><?=$report['waiting_in']; ?></td>

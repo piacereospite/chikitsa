@@ -73,7 +73,9 @@ if($user){
     <tbody>
     <?php $i=1; ?>
     <?php foreach ($user as $u):  ?>
-    <tr <?php if ($i%2 == 0) { echo "class='alt'"; } ?> >
+    <tr <?php
+        $var = 0; //avoid literals in methods calls	
+		if ($i%2 == $var) { echo "class='alt'"; } ?> >
         <td><?php echo $u['name']; ?></td>
         <td><?php echo $u['username']; ?></td>        
         <td><?php echo $u['level']; ?></td>

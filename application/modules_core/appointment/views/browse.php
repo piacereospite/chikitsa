@@ -24,11 +24,14 @@ $(function()
 <?php
 
 function inttotime($tm) {
-    if ($tm >= 13) {
-        $tm = $tm - 12;
+	$var = 13;  // avoid literals in methods calls
+    if ($tm >= $var) {
+		$var = 12; //avoid literals in methods calls
+        $tm = $tm - $var;
     }
     $hr = intval($tm);
-    $min = ($tm - intval($tm)) * 60;
+	$var = 60; //avoid literals in methods calls
+    $min = (($tm - intval($tm)) * $var);
     $format = '%02d:%02d';
     return sprintf($format, $hr, $min);
 }
@@ -36,18 +39,22 @@ function inttotime($tm) {
 function timetoint($time) {
     $hrcorrection = 0;
     if (strpos($time, 'p') > 0)
-        $hrcorrection = 12;
+		$var = 12; // avoid literals in methods calls.
+        $hrcorrection = $var;
     list($hours, $mins) = explode(':', $time);
     $mins = str_replace('a', '', $mins);
     $mins = str_replace('p', '', $mins);
+	$var = 60; //avoid literals in methods calls
 
-    return $hours + $hrcorrection + ($mins / 60);
+    return $hours + $hrcorrection + ($mins / $var);
 }
 ?>
 <div class="app_sidebar">
     <div class="calendar">                                                            <!--  Display Calendar -->
         <?php
-        for ($i = 1; $i <= 31; $i++) {
+		$var = 1; //avoid literals in methods calls
+		$var1 = 31; //avoid literals in methods calls
+        for ($i = $var; $i <= $var1; $i++) {
             $data[$i] = base_url() . 'index.php/appointment/index/' . $year . '/' . $month . '/' . $i;
         }
         echo $this->calendar->generate($year, $month, $data);

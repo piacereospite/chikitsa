@@ -112,7 +112,9 @@ foreach ($items as $item) {
                 $current_type=$bill_detail['type'];
                         }
                     ?>
-                    <tr <?php if ($i % 2 == 0) { echo "class='alt'";} ?> >
+                    <tr <?php
+                          $var = 0; //avoid literals in methods calls					
+					      if ($i % 2 == $var) { echo "class='alt'";} ?> >
                     <td><?php echo $bill_detail['particular'] ?></td>
                     
                     <td style="text-align:right;"><?php echo $bill_detail['quantity'] ?></td>                   

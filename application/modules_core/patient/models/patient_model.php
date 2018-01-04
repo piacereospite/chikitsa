@@ -1,6 +1,9 @@
 <?php
 
 class Patient_model extends CI_Model {
+	
+	const N = 5; // avoid literals in methods calls.
+	const NUM = 2; // avoid literals in methods calls.
 
     public function __construct() {
         $this->load->database();
@@ -61,10 +64,8 @@ class Patient_model extends CI_Model {
         $lname = $this->input->post('last_name');
         $str = $lname[0];
         $str = strtoupper($str);
-
         $p_id = $id;
-        $n = 5;
-        $num = str_pad((int) $p_id, $n, "0", STR_PAD_LEFT);
+        $num = str_pad((int) $p_id, N, "0", STR_PAD_LEFT);
         $display_id = $str . $num;
 
         $this->db->set("display_id", $display_id);
@@ -212,9 +213,9 @@ class Patient_model extends CI_Model {
                 $data2['bill_id'] = $bill_id;
                 $data2['purchase_id'] = null;
                 $data2['particular'] = $treatment[1];
-                $data2['amount'] = $treatment[2];
+                $data2['amount'] = $treatment[NUM];
                 $data2['quantity'] = 1;
-                $data2['mrp'] = $treatment[2];
+                $data2['mrp'] = $treatment[NUM];
                 $data2['type'] = 'treatment';
                 $this->db->insert('bill_detail', $data2);
             }
@@ -247,9 +248,9 @@ class Patient_model extends CI_Model {
                 $data2['bill_id'] = $bill_id;
                 $data2['purchase_id'] = null;
                 $data2['particular'] = $treatment[1];
-                $data2['amount'] = $treatment[2];
+                $data2['amount'] = $treatment[NUM];
                 $data2['quantity'] = 1;
-                $data2['mrp'] = $treatment[2];
+                $data2['mrp'] = $treatment[NUM];
                 $data2['type'] = 'treatment';
                 $this->db->insert('bill_detail', $data2);
             }

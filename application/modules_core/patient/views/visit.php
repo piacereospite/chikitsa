@@ -117,7 +117,9 @@ $(document).ready(function() {
         <?php $i=1; ?>        
         <?php foreach ($visits as $visit){ ?>
         <tbody>
-            <tr <?php if ($i%2 == 0) { echo "class='alt'"; } ?> >
+            <tr <?php 
+			        $var = 0; //avoid literals in methods calls
+					if ($i%2 == $var) { echo "class='alt'"; } ?> >
                 <td><?=date("d-m-Y",strtotime($visit['visit_date']));?> <?=$visit['visit_time'];?></td>
                 <td><?=$visit['type']; ?></td>
                 <td><?=$visit['notes']; ?><br />

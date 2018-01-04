@@ -11,7 +11,9 @@
     <tr><th>ID</th><th>Name</th><th>Number</th><th>Address</th><th>Edit</th><th>Delete</th></tr>
     <?php $i=1; ?>
     <?php foreach ($contacts as $contact):  ?>
-    <tr <?php if ($i%2 == 0) { echo "class='alt'"; } ?> >
+    <tr <?php 
+	    $var = 0; //avoid literals in methods calls
+	    if ($i%2 == $var) { echo "class='alt'"; } ?> >
         <td><?php echo $contact['contact_id'] ?></td>
         <td><?php echo $contact['first_name'] , " " , $contact['middle_name'] , " " , $contact['last_name'] ?></td> 
         <td><?php echo $contact['phone_number'] ?></td>

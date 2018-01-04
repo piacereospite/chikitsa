@@ -27,7 +27,7 @@
                 $db_username = $username;
                 $db_password = $password;
 
-                // Attempt connection 
+                // Attempt connection
                 try {
                     // Create connection to MYSQL database
                     // Fourth true parameter will allow for multiple connections to be made
@@ -105,9 +105,9 @@
         function get_server() {
             // Edit config/database.php file 
             $database_file = "application/config/database.php";
-            $line_array = file($database_file);
-
-            for ($i = 0; $i < count($line_array); $i++) {
+            $line_array = file($database_file); 
+			$total = count($line_array); // fixed "do not use counter functions in loop expressions"
+            for ($i = 0; $i < $total; $i++) { // fixed "do not use counter functions in loop expressions"
                 if (strstr($line_array[$i], "['default']['hostname']")) {
                     $server = str_replace('$db[\'default\'][\'hostname\'] = ', "", $line_array[$i]);
                     $server = str_replace("'", "", $server);
@@ -122,8 +122,8 @@
             // Edit config/database.php file 
             $database_file = "application/config/database.php";
             $line_array = file($database_file);
-
-            for ($i = 0; $i < count($line_array); $i++) {
+			$total = count($line_array); // fixed "do not use counter functions in loop expressions"
+            for ($i = 0; $i < $total; $i++) { // fixed "do not use counter functions in loop expressions"
                 if (strstr($line_array[$i], "['default']['username']")) {
                     $username = str_replace('$db[\'default\'][\'username\'] = ', "", $line_array[$i]);
                     $username = str_replace("'", "", $username);
@@ -138,8 +138,8 @@
             // Edit config/database.php file 
             $database_file = "application/config/database.php";
             $line_array = file($database_file);
-
-            for ($i = 0; $i < count($line_array); $i++) {
+			$total = count($line_array);  // fixed "do not use counter functions in loop expressions"
+            for ($i = 0; $i < $total; $i++) { // fixed "do not use counter functions in loop expressions"
                 if (strstr($line_array[$i], "['default']['password']")) {
                     $password = str_replace('$db[\'default\'][\'password\'] = ', "", $line_array[$i]);
                     $password = str_replace("'", "", $password);
@@ -153,8 +153,8 @@
         function get_database() {
             $database_file = "application/config/database.php";
             $line_array = file($database_file);
-
-            for ($i = 0; $i < count($line_array); $i++) {
+			$total = count($line_array); // fixed "do not use counter functions in loop expressions"
+            for ($i = 0; $i < $total; $i++) { // fixed "do not use counter functions in loop expressions"
                 if (strstr($line_array[$i], "['default']['database']")) {
                     $database = str_replace('$db[\'default\'][\'database\'] = ', "", $line_array[$i]);
                     $database = str_replace("'", "", $database);
@@ -168,8 +168,8 @@
         function get_dbprefix() {
             $database_file = "application/config/database.php";
             $line_array = file($database_file);
-
-            for ($i = 0; $i < count($line_array); $i++) {
+			$total = count($line_array); // fixed "do not use counter functions in loop expressions"
+            for ($i = 0; $i < $total; $i++) { // fixed "do not use counter functions in loop expressions"
                 if (strstr($line_array[$i], "['default']['dbprefix']")) {
                     $dbprefix = str_replace('$db[\'default\'][\'dbprefix\'] = ', "", $line_array[$i]);
                     $dbprefix = str_replace("'", "", $dbprefix);
@@ -183,8 +183,8 @@
         function is_installed() {
             $config_file = "application/config/config.php";
             $line_array = file($config_file);
-
-            for ($i = 0; $i < count($line_array); $i++) {
+			$total = count($line_array); // fixed "do not use counter functions in loop expressions"
+            for ($i = 0; $i < $total; $i++) { // fixed "do not use counter functions in loop expressions"
                 if (strstr($line_array[$i], "['install']")) {
                     if (strstr($line_array[$i], '$config[\'install\'] = 0;')) {
                         // Application is not installed
@@ -1216,8 +1216,8 @@
             // Edit config/database.php file 
             $database_file = "application/config/database.php";
             $line_array = file(htmlspecialchars($database_file)); // BUG FIXED: Avoid non-neutralized user-controlled input to be part of a pathname (file or directory) used in I/O operations
-
-            for ($i = 0; $i < count($line_array); $i++) {
+			$total = count($line_array); // fixed "do not use counter functions in loop expressions"
+            for ($i = 0; $i < $total; $i++) { // fixed "do not use counter functions in loop expressions"
 
                 if (strstr($line_array[$i], "['default']['hostname']")) {
                     $line_array[$i] = '$db[\'default\'][\'hostname\'] = \'' . $_POST["server"] . '\';' . "\n";
@@ -1240,8 +1240,8 @@
             //Store that application is installed
             $config_file = "application/config/config.php";
             $line_array = file(htmlspecialchars($config_file)); // BUG FIXED: Avoid non-neutralized user-controlled input to be part of a pathname (file or directory) used in I/O operations
-
-            for ($i = 0; $i < count($line_array); $i++) {
+			$total = count($line_array); // fixed "do not use counter functions in loop expressions"
+            for ($i = 0; $i < $total; $i++) { // fixed "do not use counter functions in loop expressions"
                 if (strstr($line_array[$i], "['install']")) {
                     $line_array[$i] = '$config[\'install\'] = 1;' . "\n";
                 }

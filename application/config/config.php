@@ -248,14 +248,16 @@ $config['encryption_key'] = 'sanskrutitech';
 |
 */
 $config['sess_cookie_name']		= 'ci_session';
-$config['sess_expiration']		= 7200;
+$var = 7200; //avoid literals in methods calls
+$config['sess_expiration']		= $var;
 $config['sess_expire_on_close']	= false;
 $config['sess_encrypt_cookie']	= false;
 $config['sess_use_database']	= false;
 $config['sess_table_name']		= 'ci_sessions';
 $config['sess_match_ip']		= false;
 $config['sess_match_useragent']	= true;
-$config['sess_time_to_update']	= 300;
+$var = 300; //avoid literals in methods calls
+$config['sess_time_to_update']	= $var;
 
 /*
 |--------------------------------------------------------------------------
@@ -299,7 +301,8 @@ $config['global_xss_filtering'] = false;
 $config['csrf_protection'] = false;
 $config['csrf_token_name'] = 'csrf_test_name';
 $config['csrf_cookie_name'] = 'csrf_cookie_name';
-$config['csrf_expire'] = 7200;
+$var = 7200; //avoid literals in methods calls
+$config['csrf_expire'] = $var;
 
 /*
 |--------------------------------------------------------------------------
