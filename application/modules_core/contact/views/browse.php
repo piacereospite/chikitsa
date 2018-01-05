@@ -13,7 +13,8 @@
     <?php foreach ($contacts as $contact):  ?>
     <tr <?php 
 	    define("VAR1",  0); // avoid literals in methods calls
-	    if ($i%2 == VAR1) { echo "class='alt'"; } ?> >
+		define("VAR2",  2); // avoid literals in methods calls
+	    if ($i%VAR2 == VAR1) { echo "class='alt'"; } ?> >
         <td><?php echo $contact['contact_id'] ?></td>
         <td><?php echo $contact['first_name'] , " " , $contact['middle_name'] , " " , $contact['last_name'] ?></td> 
         <td><?php echo $contact['phone_number'] ?></td>

@@ -91,7 +91,8 @@ $level = $this->session->userdata('category');
         <tbody>
             <tr <?php 
 			    define("VAR1",  0); // avoid literals in methods calls
-				if ($i%2 == VAR1) { echo "class='alt'"; } ?> >
+				define("VAR2",  2); // avoid literals in methods calls
+				if ($i%VAR2 == VAR1) { echo "class='alt'"; } ?> >
                 <td><?= $report['patient_name'];?></td>                
                 <td><?=$report['appointment_time']; ?></td>
                 <td><?=$report['waiting_in']; ?></td>

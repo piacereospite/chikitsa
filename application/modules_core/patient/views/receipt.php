@@ -55,15 +55,15 @@ $total = ($medicine + $treatment) - ((-1)*($balance));
                 </tr>
                 <tr>
                     <th class="particular">Total</th>
-                    <th class="amount"><?= define("VAR1",  2); currency_format(number_format((float)$total, VAR1, '.', ''));if($currency_postfix) echo $currency_postfix['currency_postfix']; ?></th>
+                    <th class="amount"><?php define("VAR1",  2); currency_format(number_format((float)$total, VAR1, '.', ''));if($currency_postfix) echo $currency_postfix['currency_postfix']; ?></th>
                 </tr>
                 <tr>
                     <th class="particular">Paid Amount</th>
-                    <th class="amount"><?= currency_format($paid_amount);if($currency_postfix) echo $currency_postfix['currency_postfix']; ?></th>
+                    <th class="amount"><?php currency_format($paid_amount);if($currency_postfix) echo $currency_postfix['currency_postfix']; ?></th>
                 </tr>
             </table>
             <span class="alignleft">Received with thanks</span>
-            <span class="alignright">For <?= $clinic['clinic_name'] ?></span>
+            <span class="alignright">For <?php $clinic['clinic_name'] ?></span>
             <br/><br/><br/><br/>
             <span class="alignleft">Subject to Surat Jurisdiction</span>
             <span class="alignright">Signature</span>

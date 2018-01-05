@@ -42,7 +42,8 @@ $(document).ready(function() {
     <?php foreach ($patients as $patient):  ?>        
     <tr <?php
             define("VAR1",  0); // avoid literals in methods calls
-	        if ($i%2 == VAR1) { echo "class='alt'"; } ?> >
+			define("VAR2",  2); // avoid literals in methods calls
+	        if ($i%VAR2 == VAR1) { echo "class='alt'"; } ?> >
         <td><?php echo $patient['display_id']; ?></td>
         <td><a class="link" title="Edit" href="<?php echo site_url("contact/edit/" , $patient['patient_id']); ?>"><?php echo $patient['first_name'] , " " , $patient['middle_name'] , " " , $patient['last_name'] ?></a></td>
         <td><?php echo $patient['display_name']; ?></td>
