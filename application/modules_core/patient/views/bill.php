@@ -29,7 +29,7 @@ $(function() {
 $i = 0;
 foreach ($items as $item) {
     if ($i > 0) {
-        echo ",";
+        echo ',';
     }
     echo '{value:"' , $item['item_name'] , '",id:"' , $item['item_id'] , '"}'; //Avoid concatenations in echo statement
     $i++;
@@ -113,8 +113,8 @@ foreach ($items as $item) {
                         }
                     ?>
                     <tr <?php
-                          define("VAR1",  0); // avoid literals in methods calls
-						  define("VAR2",  2); // avoid literals in methods calls
+                          define('VAR1',  0); // avoid literals in methods calls
+						  define('VAR2',  2); // avoid literals in methods calls
 					      if ($i % VAR2 == VAR1) { echo "class='alt'";} ?> >
                     <td><?php echo $bill_detail['particular'] ?></td>
                     

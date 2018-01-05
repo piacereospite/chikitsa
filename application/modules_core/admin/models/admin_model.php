@@ -9,10 +9,10 @@ class Admin_model extends CI_Model {
     }
 
     function login($username, $password, $level) {
-        $this->db->where("username", $username);
-        $this->db->where("password", $password);
-        $this->db->where("level", $level);
-        $query = $this->db->get("users");
+        $this->db->where('username', $username);
+        $this->db->where('password', $password);
+        $this->db->where('level', $level);
+        $query = $this->db->get('users');
         if ($query->num_rows() > 0) {
             foreach ($query->result() as $rows) {
                 //add all data to session
@@ -42,7 +42,7 @@ class Admin_model extends CI_Model {
     }
 
     function get_users() {
-        $query = $this->db->get("users");
+        $query = $this->db->get('users');
         return $query->result_array();
     }
 
@@ -67,8 +67,8 @@ class Admin_model extends CI_Model {
     }
 
     function get_edit_user($id) {
-        $this->db->where("userid", $id);
-        $query = $this->db->get("users");
+        $this->db->where('userid', $id);
+        $query = $this->db->get('users');
         return $query->row_array();
     }
 

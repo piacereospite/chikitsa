@@ -87,16 +87,16 @@ class Patient extends CI_Controller {
         } else {
             $level = $this->session->userdata('category');
             if ($year == null) {
-                $year = date("Y");
+                $year = date('Y');
             }
             if ($month == null) {
-                $month = date("n");
+                $month = date('n');
             }
             if ($day == null) {
-                $day = date("j");
+                $day = date('j');
             }
 
-            $app_dt = date("j-n-Y", gmmktime(0, 0, 0, $month, $day, $year));
+            $app_dt = date('j-n-Y', gmmktime(0, 0, 0, $month, $day, $year));
             $data['appointment_date'] = $app_dt;
 
             $data['appointment_time'] = $time;
@@ -125,9 +125,9 @@ class Patient extends CI_Controller {
                 }
             } else {
                 $this->appointment_model->add_appointment();
-                $year = date("Y", strtotime($this->input->post('appointment_date')));
-                $month = date("m", strtotime($this->input->post('appointment_date')));
-                $day = date("d", strtotime($this->input->post('appointment_date')));
+                $year = date('Y', strtotime($this->input->post('appointment_date')));
+                $month = date('m', strtotime($this->input->post('appointment_date')));
+                $day = date('d', strtotime($this->input->post('appointment_date')));
                 $this->index($year, $month, $day);
             }
         }

@@ -1,6 +1,6 @@
 <?php
 
-define("VAR1",  2); // avoid literals in methods calls
+define('VAR1',  2); // avoid literals in methods calls
 
 function get_currency_symbol()
   {

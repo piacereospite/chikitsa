@@ -40,7 +40,7 @@
 $y = date('Y');
 $m = date('n');
 $d = date('j');
-$timezone = "Asia/Calcutta";
+$timezone = 'Asia/Calcutta';
 if (function_exists('date_default_timezone_set'))
     date_default_timezone_set($timezone);
 $t = time('H:i A');

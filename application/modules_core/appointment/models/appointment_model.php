@@ -8,16 +8,16 @@ class Appointment_model extends CI_Model {
 
     function add_appointment() {
         /* Set Local TimeZone as Default TimeZone */
-        $timezone = "Asia/Calcutta";
+        $timezone = 'Asia/Calcutta';
         if (function_exists('date_default_timezone_set'))
             date_default_timezone_set($timezone);
 
-        $st = date('h:i', strtotime($this->input->post('start_time'))) . ":00";
+        $st = date('h:i', strtotime($this->input->post('start_time'))) . ':00';
         $uid = $this->input->post('doctor_id');
-        $date = date("Y-m-d", strtotime($this->input->post('appointment_date')));
+        $date = date('Y-m-d', strtotime($this->input->post('appointment_date')));
 
         //echo $st . " " . $uid . " " . $date . " ";
-        $data['appointment_date'] = date("Y-m-d", strtotime($this->input->post('appointment_date')));
+        $data['appointment_date'] = date('Y-m-d', strtotime($this->input->post('appointment_date')));
             $data['start_time'] = $this->input->post('start_time');
             $data['end_time'] = $this->input->post('end_time');
         $data['userid'] = $this->input->post('doctor_id');
@@ -49,10 +49,10 @@ class Appointment_model extends CI_Model {
                 $data2['appointment_id'] = $app_id;
                 $data2['change_date_time'] = date('d/m/Y H:i:s A');
                 $data2['start_time'] = $this->input->post('start_time');
-                $data2['old_status'] = " ";
+                $data2['old_status'] = ' ';
                 $data2['status'] = 'Appointment';
                 $data2['from_time'] = date('H:i:s');
-                $data2['to_time'] = " ";
+                $data2['to_time'] = ' ';
                 $data2['name'] = $this->session->userdata('name');
                 $this->db->insert('appointment_log', $data2);
             } else {
@@ -83,7 +83,7 @@ class Appointment_model extends CI_Model {
         }
 
     function get_appointment_at($appointment_date, $start_time, $doc = null) {
-        $appointment_date = date("Y-m-d", strtotime($appointment_date));
+        $appointment_date = date('Y-m-d', strtotime($appointment_date));
         if ($doc == null) {
             return;
         } else {
@@ -124,7 +124,7 @@ class Appointment_model extends CI_Model {
 	//	echo " After update appointments";
         /* Code to Set Date time Zone For India */
 
-        $timezone = "Asia/Calcutta";
+        $timezone = 'Asia/Calcutta';
         if (function_exists('date_default_timezone_set'))
             date_default_timezone_set($timezone);
 	//	echo ' After time Set';
@@ -151,7 +151,7 @@ class Appointment_model extends CI_Model {
     }
 
     function get_followup($follow_date) {
-        $this->db->order_by("followup_date", "asc");
+        $this->db->order_by('followup_date', 'asc');
         $query = $this->db->get_where('patient', array('followup_date <' => $follow_date, 'followup_date !=' => '0000:00:00'));
         return $query->result_array();
     }
@@ -169,7 +169,7 @@ class Appointment_model extends CI_Model {
     
     function get_todos(){
         $user_id = $this->session->userdata('id');
-        $query = "Select * FROM " . $this->db->dbprefix('todos') . " WHERE userid = " . $user_id . " and (done = 0 OR (done_date > DATE_SUB(NOW(), INTERVAL 29 DAY) AND done = 1)) ORDER BY done ASC, add_date DESC;";         
+        $query = 'Select * FROM ' . $this->db->dbprefix('todos') . ' WHERE userid = ' . $user_id . ' and (done = 0 OR (done_date > DATE_SUB(NOW(), INTERVAL 29 DAY) AND done = 1)) ORDER BY done ASC, add_date DESC;';         
         $result = $this->db->query($query);
         return $result->result_array();
     }

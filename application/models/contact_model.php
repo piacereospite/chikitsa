@@ -112,7 +112,7 @@ class Contact_model extends CI_Model {
         }
         function update_emails()
         {
-            $sql_update = "UPDATE contact_details SET detail = ?  WHERE contact_detail_id = ?"; 
+            $sql_update = 'UPDATE contact_details SET detail = ?  WHERE contact_detail_id = ?'; 
             $sql_insert = "INSERT into contact_details (contact_id,type,detail) Values (?,'email',?)"; 
 
             $id = $this->input->post('contact_id');

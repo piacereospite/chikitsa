@@ -63,7 +63,7 @@ class Gallery extends CI_Controller {
         $config['overwrite'] = false;
         $config['max_width'] = VAR1;
         $config['max_height'] = VAR1;
-        $config['file_name'] = $d_id . "_" . date("dmY");
+        $config['file_name'] = $d_id . '_' . date('dmY');
 
 
         $this->load->library('upload', $config);

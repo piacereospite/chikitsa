@@ -16,11 +16,11 @@ class Patient_model extends CI_Model {
             $this->db->like('first_name', $name);
             $this->db->or_like('middle_name', $name);
             $this->db->or_like('last_name', $name);
-            $this->db->order_by("first_name", "asc");
+            $this->db->order_by('first_name', 'asc');
             $query = $this->db->get('view_patient');
             return $query->result_array();
         }
-        $this->db->order_by("first_name", "asc");
+        $this->db->order_by('first_name', 'asc');
         $query = $this->db->get('view_patient');
         return $query->result_array();
     }
@@ -40,7 +40,7 @@ class Patient_model extends CI_Model {
 //            $query = $this->db->get_where('view_patient ', array('userid' => $id));
 //            return $query->result_array();
 //        } else {            
-            $this->db->order_by("first_name", "asc");
+            $this->db->order_by('first_name', 'asc');
             $this->db->group_by('patient_id');
             $query = $this->db->get('view_patient');
             return $query->result_array();
@@ -49,8 +49,8 @@ class Patient_model extends CI_Model {
 
     function insert_patient($contact_id) {
         $data['contact_id'] = $contact_id;
-        $data['patient_since'] = date("Y-m-d");
-        $data['display_id'] = "";
+        $data['patient_since'] = date('Y-m-d');
+        $data['display_id'] = '';
         $data['reference_by'] = $this->input->post('reference_by');
         $this->db->insert('patient', $data);
         //return $this->db->insert_id();
@@ -65,12 +65,12 @@ class Patient_model extends CI_Model {
         $str = $lname[0];
         $str = strtoupper($str);
         $p_id = $id;
-        $num = str_pad((int) $p_id, N, "0", STR_PAD_LEFT);
+        $num = str_pad((int) $p_id, N, '0', STR_PAD_LEFT);
         $display_id = $str . $num;
 
-        $this->db->set("display_id", $display_id);
-        $this->db->where("patient_id", $p_id);
-        $this->db->update("patient");
+        $this->db->set('display_id', $display_id);
+        $this->db->where('patient_id', $p_id);
+        $this->db->update('patient');
     }
 
     function delete_patient($patient_id) {
@@ -128,10 +128,10 @@ class Patient_model extends CI_Model {
         $level = $this->session->userdata('category');
         if($level == 'Doctor'){
             $userid = $this->session->userdata('id');
-            $this->db->order_by("visit_date", "desc");
+            $this->db->order_by('visit_date', 'desc');
             $query = $this->db->get_where('visit', array('patient_id' => $patient_id, 'userid' => $userid));
         }else {
-            $this->db->order_by("visit_date", "desc");
+            $this->db->order_by('visit_date', 'desc');
             $query = $this->db->get_where('visit', array('patient_id' => $patient_id));
         }
         return $query->result_array();
@@ -154,7 +154,7 @@ class Patient_model extends CI_Model {
         }
         $data['notes'] = $this->input->post('notes');
         $data['type'] = $this->input->post('type');
-        $data['visit_date'] = date("Y-m-d", strtotime($this->input->post('visit_date')));
+        $data['visit_date'] = date('Y-m-d', strtotime($this->input->post('visit_date')));
         $data['visit_time'] = $this->input->post('visit_time');
         $this->db->insert('visit', $data);
 
@@ -164,7 +164,7 @@ class Patient_model extends CI_Model {
         $patient_id = $this->get_patient_id($visit_id);
         
         $this->db->select('bill_id');
-        $this->db->order_by("bill_id", "desc");
+        $this->db->order_by('bill_id', 'desc');
         $this->db->limit(1);
         $query = $this->db->get_where('bill', array('patient_id' => $patient_id));
         $result = $query->row();
@@ -209,7 +209,7 @@ class Patient_model extends CI_Model {
         /* Check If Treatment is Seleceted Then Perform Insert Treatment(s) In bill_detail Table */
         if ($treatments) {
             foreach ($treatments as $treatment) {
-                $treatment = explode("/", $treatment);
+                $treatment = explode('/', $treatment);
                 $data2['bill_id'] = $bill_id;
                 $data2['purchase_id'] = null;
                 $data2['particular'] = $treatment[1];
@@ -244,7 +244,7 @@ class Patient_model extends CI_Model {
         /* Check If Treatment is Seleceted Then Perform Insert Treatment(s) In bill_detail Table */
         if ($treatments) {
             foreach ($treatments as $treatment) {
-                $treatment = explode("/", $treatment);
+                $treatment = explode('/', $treatment);
                 $data2['bill_id'] = $bill_id;
                 $data2['purchase_id'] = null;
                 $data2['particular'] = $treatment[1];
@@ -295,7 +295,7 @@ class Patient_model extends CI_Model {
         $data['purchase_id'] = $purchase_id;
         $this->db->insert('bill_detail', $data);
 
-        $sql = "update " . $this->db->dbprefix('bill') . " set total_amount = total_amount + ? where bill_id = ?;";
+        $sql = 'update ' . $this->db->dbprefix('bill') . ' set total_amount = total_amount + ? where bill_id = ?;';
         $this->db->query($sql, array($amt, $bill_id));
     }
 
@@ -336,7 +336,7 @@ class Patient_model extends CI_Model {
     }
 
     public function update_available_quantity($quantity_sold, $purchase_id) {
-        $sql = "update " . $this->db->dbprefix('purchase') . " set remain_quantity = remain_quantity - ? where purchase_id = ?;";
+        $sql = 'update ' . $this->db->dbprefix('purchase') . ' set remain_quantity = remain_quantity - ? where purchase_id = ?;';
         $this->db->query($sql, array($quantity_sold, $purchase_id));
     }
 
@@ -374,7 +374,7 @@ class Patient_model extends CI_Model {
 
     public function get_bill_detail($visit_id) {
         $bill_id = $this->get_bill_id($visit_id);
-        $this->db->order_by("type", "desc");
+        $this->db->order_by('type', 'desc');
         $query = $this->db->get_where('bill_detail', array('bill_id' => $bill_id));
         return $query->result_array();
     }
@@ -412,10 +412,10 @@ class Patient_model extends CI_Model {
 
         $this->db->delete('bill_detail', array('bill_detail_id' => $bill_detail_id));
 
-        $sql = "update " . $this->db->dbprefix('bill') . " set total_amount = total_amount - ? where bill_id = ?;";
+        $sql = 'update ' . $this->db->dbprefix('bill') . ' set total_amount = total_amount - ? where bill_id = ?;';
         $this->db->query($sql, array($amount, $bill_id));
 
-        $sql = "update " . $this->db->dbprefix('purchase') . " set remain_quantity = remain_quantity + ? where purchase_id = ?;";
+        $sql = 'update ' . $this->db->dbprefix('purchase') . ' set remain_quantity = remain_quantity + ? where purchase_id = ?;';
         $this->db->query($sql, array($quantity, $purchase_id));
     }
 
@@ -434,7 +434,7 @@ class Patient_model extends CI_Model {
         $data['cheque_no'] = $this->input->post('cheque_no');
         $this->db->insert('payment', $data);
 
-        $sql = "update " . $this->db->dbprefix('bill') . " set paid_amount = paid_amount + ? where bill_id = ?;";
+        $sql = 'update ' . $this->db->dbprefix('bill') . ' set paid_amount = paid_amount + ? where bill_id = ?;';
         $this->db->query($sql, array($this->input->post('amount'), $this->input->post('bill_id')));
     }
 
@@ -466,13 +466,13 @@ class Patient_model extends CI_Model {
     }
 
     function dismiss_followup($patient_id) {
-        $sql = "update " . $this->db->dbprefix('patient') . " set followup_date = ? where patient_id = ?;";
+        $sql = 'update ' . $this->db->dbprefix('patient') . ' set followup_date = ? where patient_id = ?;';
         $this->db->query($sql, array('0000:00:00', $patient_id));
     }
 
     function change_followup_date($patient_id) {
         $date['followup_date'] = date('Y-m-d', strtotime($this->input->post('followup_date')));
-        $sql = "update " . $this->db->dbprefix('patient') . " set followup_date = ? where patient_id = ?;";
+        $sql = 'update ' . $this->db->dbprefix('patient') . ' set followup_date = ? where patient_id = ?;';
         $this->db->query($sql, array($date['followup_date'], $patient_id));
     }
 
@@ -493,7 +493,7 @@ class Patient_model extends CI_Model {
     function get_patient_report_patient_ids() {
 
         /* Select Patientid with only one visit */
-        $result = $this->db->query("SELECT visit.patient_id, count( visit.patient_id ) AS idcount, CONCAT( contacts.first_name, ' ', contacts.middle_name, ' ', contacts.last_name ) AS patient_name, contacts.phone_number FROM " . $this->db->dbprefix('visit') . " AS visit LEFT JOIN " . $this->db->dbprefix('patient') . " AS patient ON visit.patient_id = patient.patient_id LEFT JOIN " . $this->db->dbprefix('contacts') . " AS contacts ON contacts.contact_id = patient.contact_id GROUP BY patient_id");
+        $result = $this->db->query('SELECT visit.patient_id, count( visit.patient_id ) AS idcount, CONCAT( contacts.first_name, ' ', contacts.middle_name, ' ', contacts.last_name ) AS patient_name, contacts.phone_number FROM ' . $this->db->dbprefix('visit') . ' AS visit LEFT JOIN ' . $this->db->dbprefix('patient') . ' AS patient ON visit.patient_id = patient.patient_id LEFT JOIN ' . $this->db->dbprefix('contacts') . ' AS contacts ON contacts.contact_id = patient.contact_id GROUP BY patient_id');
         $temps = $result->result_array();
 
         foreach ($temps as $temp) {
@@ -504,7 +504,7 @@ class Patient_model extends CI_Model {
         }
 
         /* Select Patientid with no visit */
-        $result = $this->db->query("SELECT patient.patient_id, CONCAT( contacts.first_name, ' ', contacts.middle_name, ' ', contacts.last_name ) AS patient_name, contacts.phone_number FROM " . $this->db->dbprefix('patient') . " AS patient LEFT JOIN " . $this->db->dbprefix('contacts') . " AS contacts ON contacts.contact_id = patient.contact_id WHERE NOT EXISTS ( SELECT patient_id FROM " . $this->db->dbprefix('visit') . " WHERE " . $this->db->dbprefix('visit') . " .patient_id = patient.patient_id )");
+        $result = $this->db->query('SELECT patient.patient_id, CONCAT( contacts.first_name, ' ', contacts.middle_name, ' ', contacts.last_name ) AS patient_name, contacts.phone_number FROM ' . $this->db->dbprefix('patient') . ' AS patient LEFT JOIN ' . $this->db->dbprefix('contacts') . ' AS contacts ON contacts.contact_id = patient.contact_id WHERE NOT EXISTS ( SELECT patient_id FROM ' . $this->db->dbprefix('visit') . ' WHERE ' . $this->db->dbprefix('visit') . ' .patient_id = patient.patient_id )');
         $temps = $result->result_array();
         foreach ($temps as $temp) {
             $p_ids[] = $temp;

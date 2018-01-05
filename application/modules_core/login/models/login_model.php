@@ -9,10 +9,10 @@ class Login_model extends CI_Model {
     }
 
     function login($username, $password) {
-        $this->db->where("username", $username);
-        $this->db->where("password", $password);
+        $this->db->where('username', $username);
+        $this->db->where('password', $password);
 //        $this->db->where("level", $level);
-        $query = $this->db->get("users");
+        $query = $this->db->get('users');
         if ($query->num_rows() > 0) {
             foreach ($query->result() as $rows) {
                 //add all data to session

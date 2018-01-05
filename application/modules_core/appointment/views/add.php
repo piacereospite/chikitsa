@@ -32,7 +32,7 @@ $(function()
     <input type="hidden" name="patient_id" value="<?=$patient['patient_id']?>"/>
     
     <label for="title">Patient</label>
-    <input type="text" name="title" value="<?php echo $patient['first_name'] , " " , $patient['middle_name'] , " " ,$patient['last_name'];?>"/><br/>
+    <input type="text" name="title" value="<?php echo $patient['first_name'] , ' ' , $patient['middle_name'] , ' ' ,$patient['last_name'];?>"/><br/>
     <span class="err"><?php echo form_error('level'); ?></span>
     
     <label for="start_time">Start Time</label>
@@ -42,7 +42,7 @@ $(function()
     <input type="text" id="end_time" name="end_time"/><br/>
     
     <label for="appointment_date">Date</label>
-    <input name="appointment_date" id="appdate" value="<?php echo date("d-m-Y"); ?>" />
+    <input name="appointment_date" id="appdate" value="<?php echo date('d-m-Y'); ?>" />
     <br/>
     <div class="button_link">
         <button class="button" type="submit" name="submit" />Save</button>

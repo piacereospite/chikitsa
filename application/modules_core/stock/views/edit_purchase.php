@@ -13,7 +13,7 @@ $(function()
         source: [<?php
                 $i=0;
                 foreach ($items as $item){
-                    if ($i>0) {echo ",";}
+                    if ($i>0) {echo ',';}
                     echo '{value:"' , $item['item_name'] , '",id:"' , $item['item_id'] , '"}'; //Avoid concatenations in echo statement
                     $i++;
                 }
@@ -32,7 +32,7 @@ $(function()
         source: [<?php
                 $i=0;
                 foreach ($suppliers as $supplier){
-                    if ($i>0) {echo ",";}
+                    if ($i>0) {echo ',';}
                     echo '{value:"' , $supplier['supplier_name'] , '",id:"' , $supplier['supplier_id'] , '"}'; //Avoid concatenations in echo statement
                     $i++;
                 }
@@ -77,7 +77,7 @@ $(document).ready(function() {
 <?php echo form_open('stock/edit_purchase/', $purchase['purchase_id']) ?> 
     <input type="hidden" name="purchase_id" id="purchase_id" value="<?=$purchase['purchase_id']?>"/>
     <label for="purchase_date">Purchase Date</label> 
-    <input type="input" name="purchase_date" id="purchase_date" value="<?php echo date("d-m-Y",strtotime($purchase['purchase_date']));?>"/><br/>
+    <input type="input" name="purchase_date" id="purchase_date" value="<?php echo date('d-m-Y',strtotime($purchase['purchase_date']));?>"/><br/>
     <label for="bill_no">Bill No.</label> 
     <input type="input" name="bill_no" id="bill_no" value="<?=$purchase['bill_no']?>"/><br/>
     <input type="hidden" name="item_id" id="item_id" value="<?=$purchase['item_id']?>"/>

@@ -99,8 +99,8 @@ class Settings_model extends CI_Model {
     }
     
     public function get_edit_treatment($id) {    
-        $this->db->where("id", $id);
-        $query = $this->db->get("treatments");
+        $this->db->where('id', $id);
+        $query = $this->db->get('treatments');
         return $query->row_array();    
     }
     

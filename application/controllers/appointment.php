@@ -21,15 +21,15 @@ class Appointment extends CI_Controller {
 	public function index($year = null,$month = null,$day=null)
 	{
             if ($year == null) 
-                {$year = date("Y");}
+                {$year = date('Y');}
             if ($month == null) 
-                {$month = date("n");}
+                {$month = date('n');}
             if ($day == null) 
-                {$day = date("j");}    
+                {$day = date('j');}    
             $data['year']=$year;
             $data['month']=$month;
             $data['day']=$day;
-            $appointment_date = date("Y-n-j",gmmktime(0, 0, 0, $month, $day, $year));
+            $appointment_date = date('Y-n-j',gmmktime(0, 0, 0, $month, $day, $year));
             $data['appointments']= $this->appointment_model->get_appointments($appointment_date);
             $data['start_time']=$this->settings_model->get_clinic_start_time();
             $data['end_time']=$this->settings_model->get_clinic_end_time();
@@ -42,13 +42,13 @@ class Appointment extends CI_Controller {
         public function edit($year = null,$month = null,$day=null,$time=null)
 	{
             if ($year == null) 
-                {$year = date("Y");}
+                {$year = date('Y');}
             if ($month == null) 
-                {$month = date("n");}
+                {$month = date('n');}
             if ($day == null) 
-                {$day = date("j");}
+                {$day = date('j');}
             
-            $app_dt = date("j-n-Y",gmmktime(0, 0, 0, $month, $day, $year));
+            $app_dt = date('j-n-Y',gmmktime(0, 0, 0, $month, $day, $year));
             $data['appointment_date']= $app_dt;
             
             $data['appointment_time'] = $time;
@@ -77,9 +77,9 @@ class Appointment extends CI_Controller {
             else
             {
                 $this->appointment_model->add_appointment();
-                $year = date("Y",strtotime($this->input->post('appointment_date')));
-                $month = date("m",strtotime($this->input->post('appointment_date')));
-                $day = date("d",strtotime($this->input->post('appointment_date')));
+                $year = date('Y',strtotime($this->input->post('appointment_date')));
+                $month = date('m',strtotime($this->input->post('appointment_date')));
+                $day = date('d',strtotime($this->input->post('appointment_date')));
                 $this->index($year,$month,$day);
             }
 	}
@@ -113,9 +113,9 @@ class Appointment extends CI_Controller {
             }
 	}
         public function delete($id,$appointment_date){
-            $year = date("Y",strtotime($appointment_date));
-            $month = date("m",strtotime($appointment_date));
-            $day = date("d",strtotime($appointment_date));
+            $year = date('Y',strtotime($appointment_date));
+            $month = date('m',strtotime($appointment_date));
+            $day = date('d',strtotime($appointment_date));
             $this->appointment_model->delete_appointment($id); 
             $this->index($year,$month,$day);
         }

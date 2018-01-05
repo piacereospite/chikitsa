@@ -64,8 +64,8 @@ $(function()
 	<input type="input" name="end_time" id="end_time" value="<?=$end_time; ?>"/><br/>
         <label for="time_interval">Time Interval</label> 
         <select name="time_interval">
-            <option <?php define ("VAR1", 0.25); if($time_interval == VAR1){echo 'selected = "selected"';}  ?> value="0.25">15 Min</option>
-            <option <?php define ("VAR1", 0.50); if($time_interval == VAR1){echo 'selected = "selected"';}  ?> value="0.50">30 Min</option>
+            <option <?php define ('VAR1', 0.25); if($time_interval == VAR1){echo 'selected = 'selected'';}  ?> value="0.25">15 Min</option>
+            <option <?php define ('VAR1', 0.50); if($time_interval == VAR1){echo 'selected = 'selected'';}  ?> value="0.50">30 Min</option>
             <option <?php if($time_interval == 1.00){echo 'selected = "selected"';}  ?> value="1.00">1 Hour</option>
         </select><br/>
         <label for="next_followup_days">Next Followup After</label> 

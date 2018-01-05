@@ -14,7 +14,7 @@ $(function()
                 $i=0;
                 foreach ($items as $item){
     if ($i > 0) {
-        echo ",";
+        echo ',';
     }
                     echo '{value:"' , $item['item_name'] , '",id:"' , $item['item_id'] , '"}'; //Avoid concatenations in echo statement
                     $i++;
@@ -35,7 +35,7 @@ $(function()
                 $i=0;
                 foreach ($suppliers as $supplier){
     if ($i > 0) {
-        echo ",";
+        echo ',';
     }
                     echo '{value:"' , $supplier['supplier_name'] , '",id:"' , $supplier['supplier_id'] , '"}'; //Avoid concatenations in echo statement
                     $i++;
@@ -122,7 +122,7 @@ $(document).ready(function() {
     <?php foreach ($purchases as $purchase):  ?>
     <tr>
         <td><?php echo $purchase['purchase_id'] ?></td>
-                    <td><?php echo date("d-m-Y",strtotime($purchase['purchase_date']));?></td>
+                    <td><?php echo date('d-m-Y',strtotime($purchase['purchase_date']));?></td>
                     <td><?php echo $purchase['bill_no'] ?></td>
         <td><?php echo $purchase['item_name'] ?></td>
         <td><?php echo $purchase['quantity'] ?></td>

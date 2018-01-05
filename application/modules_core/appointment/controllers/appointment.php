@@ -26,18 +26,18 @@ class Appointment extends CI_Controller {
             redirect('login/index');
         } else {
             if ($year == null) {                                              // Get running Year 
-                $year = date("Y");
+                $year = date('Y');
             }
             if ($month == null) {
-                $month = date("n");                                           // Get running Month
+                $month = date('n');                                           // Get running Month
             }
             if ($day == null) {
-                $day = date("j");                                             // Get Today Day
+                $day = date('j');                                             // Get Today Day
             }
             $data['year'] = $year;
             $data['month'] = $month;
             $data['day'] = $day;
-            $appointment_date = date("Y-n-j", gmmktime(0, 0, 0, $month, $day, $year));                      //Generate today date in YYYY-MM-DD formate
+            $appointment_date = date('Y-n-j', gmmktime(0, 0, 0, $month, $day, $year));                      //Generate today date in YYYY-MM-DD formate
             $data['start_time'] = $this->settings_model->get_clinic_start_time();
             $data['end_time'] = $this->settings_model->get_clinic_end_time();
             $data['time_interval'] = $this->settings_model->get_time_interval();
@@ -47,7 +47,7 @@ class Appointment extends CI_Controller {
             if ($level == 'Doctor') {
                 $id = $this->session->userdata('id');
                 $data['appointments'] = $this->appointment_model->get_appointments_doctor($id, $appointment_date);
-                $followup_date = date('Y-m-d', strtotime("+8 days"));
+                $followup_date = date('Y-m-d', strtotime('+8 days'));
                 $data['followups'] = $this->appointment_model->get_followup($followup_date);
                 $data['patients'] = $this->patient_model->get_patient();
 
@@ -61,7 +61,7 @@ class Appointment extends CI_Controller {
                 //$i = 0;
 
                 $data['appointments'] = $this->appointment_model->get_appointments($appointment_date);
-                $followup_date = date('Y-m-d', strtotime("+8 days"));
+                $followup_date = date('Y-m-d', strtotime('+8 days'));
                 $data['followups'] = $this->appointment_model->get_followup($followup_date);
                 $data['patients'] = $this->patient_model->get_patient();
 
@@ -79,17 +79,17 @@ class Appointment extends CI_Controller {
         } else {
             $level = $this->session->userdata('category');
             if ($year == null) {
-                $year = date("Y");
+                $year = date('Y');
             }
             if ($month == null) {
-                $month = date("n");
+                $month = date('n');
             }
             if ($day == null) {
-                $day = date("j");
+                $day = date('j');
             }
             $today = date('j-n-Y');
 
-            $app_dt = date("j-n-Y", gmmktime(0, 0, 0, $month, $day, $year));
+            $app_dt = date('j-n-Y', gmmktime(0, 0, 0, $month, $day, $year));
             if (strtotime($app_dt) < strtotime($today) && $level != 'Administrator') {
                 $this->load->view('templates/header');
                 $this->load->view('templates/menu');
@@ -147,9 +147,9 @@ class Appointment extends CI_Controller {
                 } else {
                     /* echo 'Else in Appoinment edit'; */
                     $this->appointment_model->add_appointment();
-                    $year = date("Y", strtotime($this->input->post('appointment_date')));
-                    $month = date("m", strtotime($this->input->post('appointment_date')));
-                    $day = date("d", strtotime($this->input->post('appointment_date')));
+                    $year = date('Y', strtotime($this->input->post('appointment_date')));
+                    $month = date('m', strtotime($this->input->post('appointment_date')));
+                    $day = date('d', strtotime($this->input->post('appointment_date')));
                     $this->index($year, $month, $day);
                 }
             }
@@ -160,7 +160,7 @@ class Appointment extends CI_Controller {
         if ($this->session->userdata('user_name') == '') {
             redirect('login/index');
         } else {
-            $data['error'] = "This Time is not available";
+            $data['error'] = 'This Time is not available';
             $data['patient'] = '';
             $data['appointment'] = '';
             $data['appointment_time'] = '';
@@ -222,9 +222,9 @@ class Appointment extends CI_Controller {
         if ($this->session->userdata('user_name') == '') {
             redirect('login/index');
         } else {
-            $year = date("Y", strtotime($appointment_date));
-            $month = date("m", strtotime($appointment_date));
-            $day = date("d", strtotime($appointment_date));
+            $year = date('Y', strtotime($appointment_date));
+            $month = date('m', strtotime($appointment_date));
+            $day = date('d', strtotime($appointment_date));
             $this->appointment_model->delete_appointment($id);
             $this->index($year, $month, $day);
         }

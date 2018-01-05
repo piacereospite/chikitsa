@@ -56,8 +56,8 @@
         <label for="type">Address Type</label> 
         <select name="type">
             <option></option>
-            <option value="Home" <?php if ($contacts['type'] == "Home") { echo "selected"; } ?>>Home</option>
-            <option value="Office" <?php if ($contacts['type'] == "Office") { echo "selected"; } ?>>Office</option>
+            <option value="Home" <?php if ($contacts['type'] == 'Home') { echo 'selected'; } ?>>Home</option>
+            <option value="Office" <?php if ($contacts['type'] == 'Office') { echo 'selected'; } ?>>Office</option>
         </select><br/>
     </div>
     <div>

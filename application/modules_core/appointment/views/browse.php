@@ -23,10 +23,10 @@ $(function()
 </script>
 <?php
 
-define("VAR1",  13); // avoid literals in methods calls
-define("VAR2",  12); // avoid literals in methods calls
-define("VAR3",  60); // avoid literals in methods calls
-define("VAR4",  31); // avoid literals in methods calls
+define('VAR1',  13); // avoid literals in methods calls
+define('VAR2',  12); // avoid literals in methods calls
+define('VAR3',  60); // avoid literals in methods calls
+define('VAR4',  31); // avoid literals in methods calls
 
 function inttotime($tm) {
     if ($tm >= VAR1) {
@@ -73,7 +73,7 @@ function timetoint($time) {
                         if ($followup['patient_id'] == $patient['patient_id']) {
                             ?> <tr> <?php
                             $followup_data['followup_date'] = $followup['followup_date'];
-                            $followup_data['patient_name'] = $patient['first_name'] . " " . $patient['middle_name'] . " " . $patient['last_name'];
+                            $followup_data['patient_name'] = $patient['first_name'] . ' ' . $patient['middle_name'] . ' ' . $patient['last_name'];
                             ?> <td class='follow-date'> <?php echo date('d-m-Y', strtotime($followup_data['followup_date']));?> </td>
                                <td class='follow-name'><a href = ' <?php echo base_url();?> index.php/patient/followup/ <?php echo $patient['patient_id'];?> '> <?php echo $followup_data['patient_name'];?> </td>
                                </tr> <?php
@@ -121,9 +121,9 @@ function timetoint($time) {
 //                echo ">";
                 echo "<input type='checkbox' id='todo' name='todo' value='" , $todo['id_num'] , "'";
                 if ($todo['done'] == 1) {
-                    echo " checked";
+                    echo ' checked';
                 }
-                echo "/>";
+                echo '/>';
                 ?> <span> <?php echo $todo['todo']; ?> </span><a class='todo_img' href=' <?php echo base_url(); ?> index.php/appointment/delete_todo/ <?php echo $todo['id_num']; ?> '><img src=' <?php echo base_url(); ?> images/wrong.png' width='15' height='15'/><a/><br/> <?php
 //                echo "</li>";
             }
@@ -163,7 +163,7 @@ function timetoint($time) {
 </div>
 
 <div class="day_appointment">
-    <span class="current_date"><?php echo $day , "/" , $month , "/" , $year; ?></span>
+    <span class="current_date"><?php echo $day , '/' , $month , '/' , $year; ?></span>
     <?php
     $level = $this->session->userdata('category');
     if ($level == 'Doctor') {
@@ -225,7 +225,7 @@ function timetoint($time) {
                 $start_time = timetoint($start_time);
                 $end_time = timetoint($end_time);
                 for ($i = $start_time; $i < $end_time; $i = $i + $time_interval) {
-                    $title = "";
+                    $title = '';
                     $id = 0; 
                     ?> <tr>
                        <td class='appointment_time'> <?php echo inttotime($i); ?> </td> <?php
@@ -242,25 +242,25 @@ function timetoint($time) {
                         }
                     }
                     if ($found) {
-                        if ($status == "Appointments") { ?>
+                        if ($status == 'Appointments') { ?>
                             <td id=' <?php echo $status; ?> '> <?php echo $title; ?> <a title = 'Waiting' href=' <?php echo base_url(); ?> index.php/appointment/change_status/ <?php echo $id; ?> / <?php echo $date; ?> / <?php echo $status; ?> / <?php echo $time; ?> /Waiting'><img src=' <?php echo base_url(); ?> images/status.png' width='20' height='20' /></a><a class='confirmClick' title='Cancel Appointment of : <?php echo $title; ?> ' href=' <?php echo base_url(); ?> index.php/appointment/change_status/ <?php echo $id; ?> / <?php echo $date; ?> / <?php echo $status; ?> / <?php echo $time; ?> /Cancel'><img src='<?php echo base_url(); ?> images/wrong.png' width='20' height='20' /></a></td>
                             <td id='blank'><a href='<?php echo base_url(); ?> index.php/appointment/edit/ <?php echo $year; ?> / <?php echo $month; ?> / <?php echo $day; ?> / <?php echo inttotime($i); ?> /0/0/ <?php echo $userid; ?> '> </a></td>
                             <td id='blank'><a href='<?php echo base_url(); ?> index.php/appointment/edit/ <?php echo $year; ?> / <?php echo $month; ?> / <?php echo $day; ?> / <?php echo inttotime($i); ?> /0/0/ <?php echo $userid; ?> '> </a></td>
                             <td id='blank'><a href='<?php echo base_url(); ?> index.php/appointment/edit/ <?php echo $year; ?> / <?php echo $month; ?> / <?php echo $day; ?> / <?php echo inttotime($i); ?> /0/0/ <?php echo $userid; ?> '> </a></td> <?php
                         }
-                        if ($status == "Waiting") { ?>
+                        if ($status == 'Waiting') { ?>
                             <td id='blank'><a href='<?php echo base_url(); ?> index.php/appointment/edit/<?php echo $year; ?> /<?php echo $month; ?> / <?php echo $day; ?>  / <?php echo inttotime($i); ?> /0/0/ <?php echo $userid; ?> '> </a></td>
                             <td id='<?php echo $status; ?> '> <?php echo $title; ?> <a title = 'Consultation' href=' <?php echo base_url(); ?>index.php/appointment/change_status/ <?php echo $id; ?>  / <?php echo $date; ?> / <?php echo $status; ?> / <?php echo $time; ?>/Consultation'><img src='<?php echo base_url(); ?>"images/status.png' width='20' height='20' /></a><a class='confirmClick' title='Cancel Appointment of :<?php echo $title; ?>' href='<?php echo base_url(); ?>index.php/appointment/change_status/<?php echo $id; ?>/<?php echo $date; ?>/<?php echo $status; ?>/<?php echo $time; ?>/Cancel'><img src='<?php echo base_url(); ?>images/wrong.png' width='20' height='20' /></a></td>
                             <td id='blank'><a href='<?php echo base_url(); ?>index.php/appointment/edit/<?php echo $year; ?>/<?php echo $month; ?>/<?php echo $day; ?>/<?php echo inttotime($i); ?>/0/0/<?php echo $userid; ?>'> </a></td>
                             <td id='blank'><a href='<?php echo base_url(); ?>index.php/appointment/edit/<?php echo $year; ?>/<?php echo $month; ?>/<?php echo $day; ?>/<?php echo inttotime($i); ?>/0/0/<?php echo $userid; ?>'> </a></td> <?php
                         }
-                        if ($status == "Consultation") { ?>
+                        if ($status == 'Consultation') { ?>
                             <td id='blank'><a href='<?php echo base_url(); ?>index.php/appointment/edit/<?php echo $year; ?>/<?php echo $month; ?>/<?php echo $day; ?>/<?php echo inttotime($i); ?>/0/0/<?php echo $userid; ?>'> </a></td>
                             <td id='blank'><a href='<?php echo base_url(); ?>index.php/appointment/edit/<?php echo $year; ?>/<?php echo $month; ?>/<?php echo $day; ?>/<?php echo inttotime($i); ?>/0/0/<?php echo $userid; ?>'> </a></td>
                             <td id='<?php echo $status; ?>'><a href='<?php echo base_url(); ?>index.php/patient/visit/<?php echo $p_id; ?>/<?php echo $id; ?>/<?php echo $date; ?>/<?php echo inttotime($i); ?>'><?php echo $title; ?></a></td>                                                          
                             <td id='blank'><a href='<?php echo base_url(); ?>index.php/appointment/edit/<?php echo $year; ?>/<?php echo $month; ?>/<?php echo $day; ?>/<?php echo inttotime($i); ?>/0/0/<?php echo $userid; ?>'> </a></td> <?php
                         }
-                        if ($status == "Cancel" || $status == "Complete") { ?>
+                        if ($status == 'Cancel' || $status == 'Complete') { ?>
                             <td id='blank'><a href='<?php echo base_url(); ?>index.php/appointment/edit/<?php echo $year; ?>/<?php echo $month; ?>/<?php echo $day; ?>/<?php echo inttotime($i); ?>/0/0/<?php echo $userid; ?>'> </a></td>
                             <td id='blank'><a href='<?php echo base_url(); ?>index.php/appointment/edit/<?php echo $year; ?>/<?php echo $month; ?>/<?php echo $day; ?>/<?php echo inttotime($i); ?>/0/0/<?php echo $userid; ?>'> </a></td>
                             <td id='blank'><a href='<?php echo base_url(); ?>index.php/appointment/edit/<?php echo $year; ?>/<?php echo $month; ?>/<?php echo $day; ?>/<?php echo inttotime($i); ?>/0/0/<?php echo $userid; ?>'> </a></td>

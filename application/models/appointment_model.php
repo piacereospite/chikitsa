@@ -7,7 +7,7 @@ class Appointment_model extends CI_Model {
 	}
         function add_appointment()
         {
-            $data['appointment_date'] = date("Y-m-d H:i:s",strtotime($this->input->post('appointment_date')));
+            $data['appointment_date'] = date('Y-m-d H:i:s',strtotime($this->input->post('appointment_date')));
             $data['start_time'] = $this->input->post('start_time');
             $data['end_time'] = $this->input->post('end_time');
             if ($this->input->post('patient_id') <> 0)
@@ -32,7 +32,7 @@ class Appointment_model extends CI_Model {
         }
         function add_patient_appointment()
         {
-            $data['appointment_date'] = date("Y-m-d",strtotime($this->input->post('appointment_date')));
+            $data['appointment_date'] = date('Y-m-d',strtotime($this->input->post('appointment_date')));
             $data['start_time'] = $this->input->post('start_time');
             $data['end_time'] = $this->input->post('end_time');
             $data['title'] = $this->input->post('title');
@@ -47,7 +47,7 @@ class Appointment_model extends CI_Model {
         }
         function get_appointment_at($appointment_date,$start_time)
         {
-            $appointment_date = date("Y-m-d",strtotime($appointment_date));
+            $appointment_date = date('Y-m-d',strtotime($appointment_date));
             $query = $this->db->get_where('appointments', array('appointment_date' =>  $appointment_date,'start_time' => $start_time));
             return $query->row_array();
         }

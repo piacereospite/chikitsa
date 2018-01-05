@@ -74,8 +74,8 @@ if($user){
     <?php $i=1; ?>
     <?php foreach ($user as $u):  ?>
     <tr <?php
-	    define("VAR1",  0); // avoid literals in methods calls	
-		define("VAR2",  2); // avoid literals in methods calls
+	    define('VAR1',  0); // avoid literals in methods calls	
+		define('VAR2',  2); // avoid literals in methods calls
 		if ($i%VAR2 == VAR1) { echo "class='alt'"; } ?> >
         <td><?php echo $u['name']; ?></td>
         <td><?php echo $u['username']; ?></td>        

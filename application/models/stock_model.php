@@ -36,7 +36,7 @@ class Stock_model extends CI_Model {
         }
         public function save_purchase()
         {
-            $data['purchase_date'] = date("Y-m-d",strtotime($this->input->post('purchase_date')));
+            $data['purchase_date'] = date('Y-m-d',strtotime($this->input->post('purchase_date')));
             $data['item_id'] = $this->input->post('item_id');
             $data['quantity'] = $this->input->post('quantity');
             $data['supplier_id'] = $this->input->post('supplier_id');

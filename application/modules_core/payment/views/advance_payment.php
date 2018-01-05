@@ -17,7 +17,7 @@ and open the template in the editor.
     <label for="title">Payment Amount</label>        
     <input type="text" name="payment_amount" id="payment_amount" value="" />       
     <input class="button" type="submit" value="Add" name="submit" /><br/><br/>
-    <a href="<?=site_url("appointment/index"); ?>" class="button" >Back to Appointment</a><br/>
+    <a href="<?=site_url('appointment/index'); ?>" class="button" >Back to Appointment</a><br/>
     </form>
     
 </div>

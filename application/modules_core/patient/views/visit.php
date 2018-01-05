@@ -28,7 +28,7 @@ $(document).ready(function() {
     <span class="view_label">Id :</span>
     <span class="view_detail"><?php echo $patient['display_id'];?></span><br/>
     <span class="view_label">Name :</span>
-    <span class="view_detail"><?php echo $patient['first_name'] , " " , $patient['middle_name'], " " , $patient['last_name'];?></span><br/> 
+    <span class="view_detail"><?php echo $patient['first_name'] , ' ' , $patient['middle_name'], ' ' , $patient['last_name'];?></span><br/> 
     <span class="view_label">Display Name :</span>
     <span class="view_detail"><?php echo $patient['display_name'];?></span><br/>
     <span class="view_label">Mobile :</span>
@@ -37,7 +37,7 @@ $(document).ready(function() {
     <span class="view_detail"><?=$addresses['email'];?></span><br/>
     <span class="view_label">Address :</span>
     <span class="view_detail"><strong>(<?php echo $addresses['type'];?>)</strong></span>
-        <span class="view_detail"><?php echo $addresses['address_line_1'],",",$addresses['address_line_2'],",",$addresses['city'],",",$addresses['state'],",",$addresses['postal_code'],",",$addresses['country'];?></span><br/>     
+        <span class="view_detail"><?php echo $addresses['address_line_1'],',',$addresses['address_line_2'],',',$addresses['city'],',',$addresses['state'],',',$addresses['postal_code'],',',$addresses['country'];?></span><br/>     
     <span class="view_label">Reference By :</span>
     <span class="view_detail"><?php echo $patient['reference_by'];?></span><br/><br />
     
@@ -104,7 +104,7 @@ $(document).ready(function() {
             </script><br />
         
         <button class="button" type="submit" name="submit" />Save</button>
-        <a class="button" <?php if($appointment_id == null){ echo 'style= display:none;';} else{ echo 'href = ' , base_url() , "index.php/appointment/change_status/" , $appointment_id , "/" , $appointment_date , "/Consultation"  , "/" , $start_time , "/Complete";}?>>Complete</a>           
+        <a class="button" <?php if($appointment_id == null){ echo 'style= display:none;';} else{ echo 'href = ' , base_url() , 'index.php/appointment/change_status/' , $appointment_id , '/' , $appointment_date , '/Consultation'  , '/' , $start_time , '/Complete';}?>>Complete</a>           
     </form> 
     
 </div>
@@ -118,10 +118,10 @@ $(document).ready(function() {
         <?php foreach ($visits as $visit){ ?>
         <tbody>
             <tr <?php 
-			        define("VAR1",  0); // avoid literals in methods calls
-					define("VAR2",  2); // avoid literals in methods calls
+			        define('VAR1',  0); // avoid literals in methods calls
+					define('VAR2',  2); // avoid literals in methods calls
 					if ($i%VAR2 == VAR1) { echo "class='alt'"; } ?> >
-                <td><?=date("d-m-Y",strtotime($visit['visit_date']));?> <?=$visit['visit_time'];?></td>
+                <td><?=date('d-m-Y',strtotime($visit['visit_date']));?> <?=$visit['visit_time'];?></td>
                 <td><?=$visit['type']; ?></td>
                 <td><?=$visit['notes']; ?><br />
                     <?php $flag = false;
@@ -132,7 +132,7 @@ $(document).ready(function() {
                                     echo $visit_treatment['particular'];
                                     $flag = true;
                                 }else{
-                                    echo " ," , $visit_treatment['particular']; //Avoid concatenations in echo statement
+                                    echo ' ,' , $visit_treatment['particular']; //Avoid concatenations in echo statement
                                 }
                             }
                         }?>

@@ -9,7 +9,7 @@
     <?php $p_id = $this->input->get('patient_id'); ?>
     <div style="overflow: auto;">
         <?php foreach($images as $image){
-                    $img = explode(" ", $image);
+                    $img = explode(' ', $image);
         ?>
         <div class="image_compare">
             <h3><?php echo $img[1]; ?></h3>

@@ -20,7 +20,7 @@ class Payment extends CI_Controller {
         } else {
             $data['patient_id'] = $p_id;
             $data['balance'] = $this->payment_model->get_balance_amount($p_id);
-            $data['header'] = "Advance Payment";
+            $data['header'] = 'Advance Payment';
             $this->load->view('templates/header');
             $this->load->view('templates/menu');
             $this->load->view('advance_payment', $data);
@@ -47,7 +47,7 @@ class Payment extends CI_Controller {
         $data['patient_id'] = $patient_id;
         $data['total'] = $total_amount;
         $data['bill_id'] = $bill_id;
-        $data['header'] = "Bill Payment";
+        $data['header'] = 'Bill Payment';
         $data['currency_postfix'] = $this->settings_model->get_currency_postfix();
 
             $this->load->view('templates/header');

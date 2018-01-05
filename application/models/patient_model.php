@@ -13,11 +13,11 @@ class Patient_model extends CI_Model {
                 $this->db->like('first_name', $name);
                 $this->db->or_like('middle_name', $name); 
                 $this->db->or_like('last_name', $name); 
-                $this->db->order_by("first_name", "asc"); 
+                $this->db->order_by('first_name', 'asc'); 
                 $query = $this->db->get('view_patient');
                 return $query->result_array();
             }
-            $this->db->order_by("first_name", "asc"); 
+            $this->db->order_by('first_name', 'asc'); 
             $query = $this->db->get('view_patient');
             return $query->result_array();
 	}
@@ -33,7 +33,7 @@ class Patient_model extends CI_Model {
             $last_name = $this->input->post('last_name');
             if ($first_name != null && $middle_name != null && $last_name != null)
             {
-                $this->db->order_by("first_name", "asc"); 
+                $this->db->order_by('first_name', 'asc'); 
                 $this->db->like('first_name',$first_name); 
                 $this->db->like('middle_name',$middle_name); 
                 $this->db->like('last_name',$last_name); 
@@ -41,32 +41,32 @@ class Patient_model extends CI_Model {
                 return $query->result_array();
             }elseif ($first_name != null && $last_name != null)
             {
-                $this->db->order_by("first_name", "asc"); 
+                $this->db->order_by('first_name', 'asc'); 
                 $this->db->like('first_name',$first_name); 
                 $this->db->like('last_name',$last_name); 
                 $query = $this->db->get('view_patient');
                 return $query->result_array();
             }elseif ($first_name != null && $last_name == null)
             {
-                $this->db->order_by("first_name", "asc"); 
+                $this->db->order_by('first_name', 'asc'); 
                 $this->db->like('first_name',$first_name); 
                 $query = $this->db->get('view_patient');
                 return $query->result_array();
             }elseif ($first_name == null && $last_name != null)
             {
-                $this->db->order_by("first_name", "asc"); 
+                $this->db->order_by('first_name', 'asc'); 
                 $this->db->like('last_name',$last_name); 
                 $query = $this->db->get('view_patient');
                 return $query->result_array();
             }
-            $this->db->order_by("first_name", "asc"); 
+            $this->db->order_by('first_name', 'asc'); 
             $query = $this->db->get('view_patient');
             return $query->result_array();
 	}
         function insert_patient($contact_id)
         {
             $data['contact_id'] = $contact_id;
-            $data['patient_since'] = date("Y-m-d");
+            $data['patient_since'] = date('Y-m-d');
             $this->db->insert('patient', $data);
             return $this->db->insert_id();
         }
@@ -89,7 +89,7 @@ class Patient_model extends CI_Model {
         /***Visit***/
         public function get_previous_visits($patient_id)
         {
-            $this->db->order_by("visit_date", "desc"); 
+            $this->db->order_by('visit_date', 'desc'); 
             $query = $this->db->get_where('visit', array('patient_id' => $patient_id));
             
             return $query->result_array();
@@ -98,7 +98,7 @@ class Patient_model extends CI_Model {
             $data['patient_id'] = $this->input->post('patient_id');
             $data['notes'] = $this->input->post('notes');
             $data['type'] = $this->input->post('type');
-            $data['visit_date'] = date("Y-m-d",strtotime($this->input->post('visit_date')));
+            $data['visit_date'] = date('Y-m-d',strtotime($this->input->post('visit_date')));
             $data['visit_time'] = $this->input->post('visit_time');
             $this->db->insert('visit', $data);
         }
@@ -125,7 +125,7 @@ class Patient_model extends CI_Model {
             $data['amount'] = $this->input->post('amount');
             $this->db->insert('bill_detail', $data);
             
-            $sql = "update " . $this->db->dbprefix('bill') . " set total_amount = total_amount + ? where bill_id = ?;";
+            $sql = 'update ' . $this->db->dbprefix('bill') . ' set total_amount = total_amount + ? where bill_id = ?;';
             $this->db->query($sql, array($this->input->post('amount'), $bill_id));
         }
         public function get_bill($visit_id)
@@ -180,7 +180,7 @@ class Patient_model extends CI_Model {
             $amount = $this->get_bill_detail_amount($bill_detail_id);
             $this->db->delete('bill_detail', array('bill_detail_id' => $bill_detail_id)); 
             
-            $sql = "update " . $this->db->dbprefix('bill') . " set total_amount = total_amount - ? where bill_id = ?;";
+            $sql = 'update ' . $this->db->dbprefix('bill') . ' set total_amount = total_amount - ? where bill_id = ?;';
             $this->db->query($sql, array($amount, $bill_id));
         }
         
@@ -199,7 +199,7 @@ class Patient_model extends CI_Model {
             $data['cheque_no'] = $this->input->post('cheque_no');
             $this->db->insert('payment', $data);
             
-            $sql = "update " . $this->db->dbprefix('bill') . " set paid_amount = paid_amount + ? where bill_id = ?;";
+            $sql = 'update ' . $this->db->dbprefix('bill') . ' set paid_amount = paid_amount + ? where bill_id = ?;';
             $this->db->query($sql, array($this->input->post('amount'), $this->input->post('bill_id')));
         }
         

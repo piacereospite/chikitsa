@@ -12,8 +12,8 @@ $(function()
         source: [<?php
                 $i=0;
                 foreach ($patients as $patient){
-                    if ($i>0) {echo ",";}
-                    echo '{value:"' , $patient['first_name'] , " " , $patient['middle_name'] , " " ,$patient['last_name'] , '",id:"' , $patient['patient_id'] , '"}'; //Avoid concatenations in echo statement
+                    if ($i>0) {echo ',';}
+                    echo '{value:'' , $patient['first_name'] , ' ' , $patient['middle_name'] , ' ' ,$patient['last_name'] , '',id:'' , $patient['patient_id'] , ''}'; //Avoid concatenations in echo statement
                     $i++;
                 }
             ?>],
@@ -31,7 +31,7 @@ $(function()
         source: [<?php
                 $i=0;
                 foreach ($items as $item){
-                    if ($i>0) {echo ",";}
+                    if ($i>0) {echo ',';}
                     echo '{value:"' , $item['item_name'] , '",id:"' , $item['item_id'] , '"}'; //Avoid concatenations in echo statement
                     $i++;
                 }
@@ -66,15 +66,15 @@ $(function()
 <?php 
     if (isset($sell))
     {
-        $patient_name = $sell['first_name'] . " " . $sell['middle_name'] . " " .$sell['last_name'];
+        $patient_name = $sell['first_name'] . ' ' . $sell['middle_name'] . ' ' .$sell['last_name'];
         $sell_date = $sell['sell_date']; 
         $sell_id = $sell['sell_id'];
     }
     else
     {
-        $patient_name = "";
-        $sell_date = date("d-m-Y");
-        $sell_id = "";
+        $patient_name = '';
+        $sell_date = date('d-m-Y');
+        $sell_id = '';
     }
     ?>
 <?php echo form_open('stock/sell') ?>

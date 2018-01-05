@@ -51,8 +51,8 @@ $(document).ready(function() {
             <?php $i=1; $j=1 ?>
             <?php foreach ($treatments as $treatment):  ?>
             <tr <?php 
-			        define("VAR1",  0); // avoid literals in methods calls
-					define("VAR2",  2); // avoid literals in methods calls
+			        define('VAR1',  0); // avoid literals in methods calls
+					define('VAR2',  2); // avoid literals in methods calls
 					if ($i%VAR2 == VAR1) { echo "class='alt'"; } ?> >
                 <td><?php echo $j; ?></td>
                 <td><?php echo $treatment['treatment']; ?></td>

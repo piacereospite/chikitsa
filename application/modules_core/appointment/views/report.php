@@ -14,7 +14,7 @@
 $i = 0;
 foreach ($doctors as $doctor) {
     if ($i > 0) {
-        echo ",";
+        echo ',';
     }
     echo '{value:"' , $doctor['name'] , '",id:"' , $doctor['userid'] , '"}'; //Avoid concatenations in echo statement
     $i++;
@@ -90,8 +90,8 @@ $level = $this->session->userdata('category');
         <?php foreach ($app_reports as $report):  ?>
         <tbody>
             <tr <?php 
-			    define("VAR1",  0); // avoid literals in methods calls
-				define("VAR2",  2); // avoid literals in methods calls
+			    define('VAR1',  0); // avoid literals in methods calls
+				define('VAR2',  2); // avoid literals in methods calls
 				if ($i%VAR2 == VAR1) { echo "class='alt'"; } ?> >
                 <td><?= $report['patient_name'];?></td>                
                 <td><?=$report['appointment_time']; ?></td>

@@ -7,7 +7,7 @@ class Gallery_model extends CI_Model {
     }
 
     public function get_images($patient_id) {
-        $this->db->order_by("id", "desc");
+        $this->db->order_by('id', 'desc');
         $query = $this->db->get_where('visit_img', array('patient_id' => $patient_id));
         return $query->result_array();
     }
@@ -23,7 +23,7 @@ class Gallery_model extends CI_Model {
         $data['patient_id'] = $patient_id;
         $data['visit_img_path'] = 'patient_images/'.$path;
         $data['visit_id'] = $visit_id;
-        $data['img_name'] = date("d-m-Y");
+        $data['img_name'] = date('d-m-Y');
         $this->db->insert('visit_img', $data);
     }
 

@@ -58,9 +58,9 @@
 $i = 0;
 foreach ($patients as $patient) {
     if ($i > 0) {
-        echo ",";
+        echo ',';
     }
-    echo '{value:"' , $patient['first_name'] , " " , $patient['middle_name'] , " " , $patient['last_name'] , '",id:"' , $patient['patient_id'] , '",display:"' , $patient['display_name'] , '",num:"' , $patient['phone_number'] , '"}';
+    echo '{value:'' , $patient['first_name'] , ' ' , $patient['middle_name'] , ' ' , $patient['last_name'] , '',id:'' , $patient['patient_id'] , '',display:'' , $patient['display_name'] , '',num:'' , $patient['phone_number'] , ''}';
     $i++;
 }
 ?>],
@@ -81,9 +81,9 @@ foreach ($patients as $patient) {
 $i = 0;
 foreach ($patients as $patient) {
     if ($i > 0) {
-        echo ",";
+        echo ',';
     }
-    echo '{value:"' , $patient['phone_number'] , '",id:"' , $patient['patient_id'] , '",display:"' , $patient['display_name'] , '",patient:"' , $patient['first_name'] , " " , $patient['middle_name'] , " " , $patient['last_name'] , '"}';
+    echo '{value:'' , $patient['phone_number'] , '',id:'' , $patient['patient_id'] , '',display:'' , $patient['display_name'] , '',patient:'' , $patient['first_name'] , ' ' , $patient['middle_name'] , ' ' , $patient['last_name'] , ''}';
     $i++;
 }
 ?>],
@@ -103,9 +103,9 @@ foreach ($patients as $patient) {
 $i = 0;
 foreach ($patients as $patient) {
     if ($i > 0) {
-        echo ",";
+        echo ',';
     }
-    echo '{value:"' , $patient['display_name'] , '",id:"' , $patient['patient_id'] , '",num:"' , $patient['phone_number'] , '",patient:"' , $patient['first_name'] , " " , $patient['middle_name'] , " " , $patient['last_name'] , '"}';
+    echo '{value:'' , $patient['display_name'] , '',id:'' , $patient['patient_id'] , '',num:'' , $patient['phone_number'] , '',patient:'' , $patient['first_name'] , ' ' , $patient['middle_name'] , ' ' , $patient['last_name'] , ''}';
     $i++;
 }
 ?>],
@@ -141,18 +141,18 @@ foreach ($patients as $patient) {
 </script>
 <?php
 
-define("VAR1",  60); // avoid literals in methods calls
+define('VAR1',  60); // avoid literals in methods calls
 if ($appointment == null) {
-    $header = "New Appointment";
-    $title = "";
-    $id = "";
+    $header = 'New Appointment';
+    $title = '';
+    $id = '';
     $start_time = $appointment_time;
-    $appointment_endtime = date("H:i", strtotime($appointment_time) + (($time_interval*$var) * VAR1));
+    $appointment_endtime = date('H:i', strtotime($appointment_time) + (($time_interval*$var) * VAR1));
     $end_time = $appointment_endtime;
     //print_r($curr_patient);
     if (isset($curr_patient)) {
         $patient_id = $curr_patient['patient_id'];
-        $patient_name = $curr_patient['first_name'] . " " . $curr_patient['middle_name'] . " " . $curr_patient['last_name'];
+        $patient_name = $curr_patient['first_name'] . ' ' . $curr_patient['middle_name'] . ' ' . $curr_patient['last_name'];
         $phone_number = $curr_patient['phone_number'];
         $display_name = $curr_patient['display_name'];
     } else {
@@ -166,7 +166,7 @@ if ($appointment == null) {
     $doctor_id = $doctor['userid'];
     $status = 'Appointment';
 } else {
-    $header = "Edit Appointment";
+    $header = 'Edit Appointment';
     $id = $appointment['appointment_id'];
     $title = $appointment['title'];
     $start_time = $appointment['start_time'];
@@ -174,7 +174,7 @@ if ($appointment == null) {
     $patient_id = $appointment['patient_id'];
     foreach ($patients as $patient) {
         if ($patient_id == $patient['patient_id']) {
-            $patient_name = $patient['first_name'] . " " . $patient['middle_name'] . " " . $patient['last_name'];
+            $patient_name = $patient['first_name'] . ' ' . $patient['middle_name'] . ' ' . $patient['last_name'];
             $phone_number = $patient['phone_number'];
             $display_name = $patient['display_name'];
         }
@@ -204,7 +204,7 @@ if ($appointment == null) {
     </div>
     <div class="slidingDiv">
 
-<?php echo form_open('patient/insert_new_patient' , "/" , $start_time , "/" , $appointment_date) ?>    
+<?php echo form_open('patient/insert_new_patient' , '/' , $start_time , '/' , $appointment_date) ?>    
         <table>
             <tr>
                 <td><label for="first_name">First Name</label></td>
@@ -268,17 +268,17 @@ if ($id != null) {
             <a class="button" <?php if ($status == 'Cancel') {
             echo 'style= display:none;';
         } else {
-            echo 'href = ' , base_url() , "index.php/appointment/change_status/" , $id , "/" , $appointment_date , "/" , $status , "/" , $start_time , "/Cancel";
+            echo 'href = ' , base_url() , 'index.php/appointment/change_status/' , $id , '/' , $appointment_date , '/' , $status , '/' , $start_time , '/Cancel';
         } ?>>Cancel Appointment</a>
             <a class="button" <?php if ($status == 'Waiting') {
             echo 'style= display:none;';
         } else {
-            echo 'href = ' , base_url() , "index.php/appointment/change_status/" , $id , "/" , $appointment_date , "/" , $status , "/" , $start_time , "/Waiting";
+            echo 'href = ' , base_url() , 'index.php/appointment/change_status/' , $id , '/' , $appointment_date , '/' , $status , '/' , $start_time , '/Waiting';
         }; ?>>Waiting</a>
             <a class="button" <?php if ($status == 'Consultation') {
             echo 'style= display:none;';
         } else {
-            echo 'href = ' , base_url() , "index.php/appointment/change_status/" , $id , "/" , $appointment_date , "/" , $status , "/" , $start_time , "/Consultation";
+            echo 'href = ' , base_url() , 'index.php/appointment/change_status/' , $id , '/' , $appointment_date , '/' , $status , '/' , $start_time , '/Consultation';
         }; ?>>Consultation</a>
 <!--            <a class="button" <?php // if ($status == 'Waiting') {
            // echo 'href = ' . base_url() . "index.php/payment/index/" . $patient_id;

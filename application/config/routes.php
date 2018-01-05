@@ -40,7 +40,7 @@ if ( ! defined('BASEPATH')) {echo ('No direct script access allowed');} else {
 |
 */
 
-$route['default_controller'] = "login";
+$route['default_controller'] = 'login';
 $route['404_override'] = '';
 
 
