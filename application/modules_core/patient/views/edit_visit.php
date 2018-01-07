@@ -3,7 +3,7 @@
     
     <span class="err"><?php echo validation_errors(); ?></span>  
 
-    <?php echo form_open('patient/edit_visit/'. $visit['visit_id'] . "/" . $follow_up['patient_id']) ?>
+    <?php echo form_open('patient/edit_visit'. $visit['visit_id'] . "/" . $follow_up['patient_id']) ?>
         <label for="visit_doctor">Doctor</label>
         <input name="visit_doctor" id="visit_doctor" value="<?= $doctor['name'] ?>" readonly/><br />
         <label for="visit_date">Visit Date</label>
@@ -27,7 +27,7 @@
                     <?php 
                         foreach ($visit_treatments as $visit_treatment) { 
                             if($visit_treatment['particular'] == $treatment['treatment']) 
-                            {   echo 'selected=\'selected\'';
+                            {   echo "selected='selected'";
                                 
                             }
                         }
